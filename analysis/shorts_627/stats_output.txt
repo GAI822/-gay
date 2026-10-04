@@ -1,0 +1,55 @@
+n = 550 channels = 25
+views median 2200000
+     feature  spearman      p  effect_x  share
+      bright     0.090 0.0354      1.05    NaN
+         t_i    -0.070 0.1030      0.89   0.09
+edge_density     0.063 0.1375      1.05    NaN
+        t_ex     0.059 0.1660      1.00   0.21
+   red_share     0.058 0.1762      1.10    NaN
+       t_num    -0.054 0.2077      0.90   0.15
+    contrast    -0.050 0.2425      0.93    NaN
+         t_q     0.045 0.2898      1.10   0.14
+       faces    -0.043 0.3106      0.98    NaN
+      t_caps     0.041 0.3328      1.00    NaN
+   face_area    -0.041 0.3391      0.96    NaN
+       t_you    -0.040 0.3470      0.98   0.11
+    face_any    -0.038 0.3786      0.98   0.70
+    face_big    -0.036 0.3960      0.96   0.25
+    colorful     0.032 0.4594      1.00    NaN
+     ocr_any    -0.019 0.6578      1.00   0.08
+   ocr_words    -0.018 0.6748      1.00    NaN
+      t_hash    -0.010 0.8125      0.99    NaN
+         sat    -0.009 0.8250      0.89    NaN
+     t_emoji     0.003 0.9480      0.97    NaN
+        t_vs    -0.002 0.9617      0.92   0.05
+       t_len    -0.002 0.9692      0.90    NaN
+       t_pov    -0.118    NaN      0.21   0.01
+            top25  bottom25      all
+t_len      37.920    39.029   39.453
+t_emoji     0.442     0.360    0.442
+t_q         0.174     0.129    0.136
+t_ex        0.225     0.108    0.215
+t_num       0.138     0.201    0.151
+face_any    0.667     0.741    0.696
+face_big    0.232     0.273    0.255
+ocr_any     0.080     0.086    0.084
+bright    120.865   109.298  116.784
+colorful   62.616    61.180   61.665
+sat        94.032    97.466   95.012
+contrast   60.851    62.065   61.008
+
+--- 全体の分布 ---
+title len median 33.5 | emoji share 0.27 | hashtag share 0.2 | face share 0.7 | cover text share 0.08
+
+--- チャンネル内で最も伸びた10本 ---
+           channel                                                      title     views      rel
+         Fischer's                    Get in the room and escape from Jason🔪🩸  10000000 1.629857
+           Sidemen                Multi Ball Penalty Challenge ⚽️ 🏈 🎾🏀⚾️🏐 #AD  48000000 1.602060
+         TheDadLab  Can You Really Turn Coal Into Diamonds with Peanut Butter   1200000 1.421170
+           Airrack             How many free samples can you get from Costco? 323000000 1.378869
+Cooking With Lynja                                      Cooking Dinosaur!?! 🦕 201000000 1.371230
+        Mark Rober                                    pride comes before flop 218000000 1.208123
+    Daniel LaBelle           When life gets hectic, let LG handle this part 👕  23000000 1.200360
+           NileRed                      Making a block of perfectly clear ice 117000000 1.181695
+         Zach King                                       Which one is cake? 🍰  52000000 1.153710
+         Zach King The ultimate cleaning crew is hiding inside Tide evo @Tide  47000000 1.109805

@@ -48,7 +48,13 @@ def check(meta_path):
     hits = sorted({m.group(0) for p in BLOCK for m in re.finditer(p, blob, re.I)})
     r(not hits, "禁止語・誇大表示なし", ", ".join(hits))
 
-    r("original" in meta.get("assets", ""), "素材がすべて自作（著作権・肖像権）", meta.get("assets", ""))
+    if meta.get("ai_generated"):
+        r("original" in meta.get("assets", ""), "素材の出どころを記録（AI生成映像＋自作音楽）", meta.get("assets", ""))
+        # 機械では判定できないので、投稿を止めずに人の確認事項として出す
+        results.append(("WARN", "AI生成映像: 既存キャラに似ていないか目視確認。リアルな見た目ならYouTubeの"
+                                "「改変・合成コンテンツ」とTikTokのAI生成ラベルをオンにする", ""))
+    else:
+        r("original" in meta.get("assets", ""), "素材がすべて自作（著作権・肖像権）", meta.get("assets", ""))
 
     if mp4.exists():
         p = json.loads(subprocess.check_output(["ffprobe", "-v", "quiet", "-print_format", "json",
@@ -67,7 +73,7 @@ def check(meta_path):
 
     for status, name, detail in results:
         print(f"[{status}] {name}" + (f"  ({detail})" if detail else ""))
-    return all(s == "PASS" for s, _, _ in results)
+    return all(s != "FAIL" for s, _, _ in results)
 
 
 if __name__ == "__main__":

@@ -49,12 +49,20 @@ def check(meta_path):
     r(not hits, "禁止語・誇大表示なし", ", ".join(hits))
 
     if meta.get("ai_generated"):
-        r("original" in meta.get("assets", ""), "素材の出どころを記録（AI生成映像＋自作音楽）", meta.get("assets", ""))
+        r("original" in meta.get("assets", ""), "素材の出どころを記録", meta.get("assets", ""))
         # 機械では判定できないので、投稿を止めずに人の確認事項として出す
         results.append(("WARN", "AI生成映像: 既存キャラに似ていないか目視確認。リアルな見た目ならYouTubeの"
                                 "「改変・合成コンテンツ」とTikTokのAI生成ラベルをオンにする", ""))
     else:
         r("original" in meta.get("assets", ""), "素材がすべて自作（著作権・肖像権）", meta.get("assets", ""))
+
+    if meta.get("music"):
+        # 他者の楽曲: 利用条件どおりのクレジット（曲名とリンク）が全言語の説明文にあること
+        m = meta["music"]
+        ok = all(m["credit"] in d and m["link"] in d for d in meta["description"].values())
+        r(ok and bool(m["credit"]) and bool(m["link"]), "楽曲クレジットを説明文に記載", m["credit"])
+        results.append(("WARN", "楽曲の利用許諾は " + "/".join(m.get("platforms", [])) + " のみ。"
+                                "他のSNSにはこの音源で投稿しない（アプリ内の楽曲ライブラリを使う）", ""))
 
     if mp4.exists():
         p = json.loads(subprocess.check_output(["ffprobe", "-v", "quiet", "-print_format", "json",

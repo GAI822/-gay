@@ -1,6 +1,6 @@
 """Higgsfield (Kling 3.0 text-to-video) で「二足歩行で踊る猫」の試作動画を生成する。
 
-必要な環境変数: HF_API_KEY_ID / HF_API_KEY_SECRET（Higgsfield Console で発行。API残高が必要）
+認証: 環境変数 HF_API_KEY_ID / HF_API_KEY_SECRET、または Network secrets（api.higgsfield.ai 宛て Authorization: Key <id>:<secret>）
 使い方:
   python3 tools/shorts_factory/higgsfield_cat.py --estimate            # 料金見積もりだけ
   python3 tools/shorts_factory/higgsfield_cat.py --out out/ --max-usd 1.5
@@ -37,9 +37,11 @@ PROMPT = (
 
 def auth():
     kid, sec = os.environ.get("HF_API_KEY_ID"), os.environ.get("HF_API_KEY_SECRET")
-    if not (kid and sec):
-        sys.exit("環境変数 HF_API_KEY_ID / HF_API_KEY_SECRET が未設定です")
-    return {"Authorization": f"Key {kid}:{sec}", "Content-Type": "application/json"}
+    if kid and sec:
+        return {"Authorization": f"Key {kid}:{sec}", "Content-Type": "application/json"}
+    # 環境変数がなければ、クラウド環境の Network secrets（api.higgsfield.ai 宛てに
+    # Authorization: Key <id>:<secret> を付ける設定）が付与してくれる前提で送る
+    return {"Content-Type": "application/json"}
 
 
 def args_body(duration):

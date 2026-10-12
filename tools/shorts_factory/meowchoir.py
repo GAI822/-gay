@@ -121,9 +121,84 @@ def build(path, tempo=160):
     return end / SR
 
 
+# ---- 本物の鳴き声を素材にするモード ----
+def load_samples(specs):
+    """specs: [(動画/音声ファイル, 開始秒, 長さ秒), ...] → [(波形, 基本周波数)]"""
+    import librosa
+    out = []
+    for path, start, dur in specs:
+        y, _ = librosa.load(path, sr=SR, offset=max(0, start - 0.04), duration=dur + 0.18)
+        f0, _, vp = librosa.pyin(y, fmin=150, fmax=1500, sr=SR)
+        base = float(np.nanmedian(f0[np.nan_to_num(vp) > 0.5]))
+        y = y / (np.abs(y).max() + 1e-9)
+        fade = int(0.03 * SR)
+        y[-fade:] *= np.linspace(1, 0, fade)
+        out.append((y, base))
+    return out
+
+
+def real_note(samples, f0, dur):
+    import librosa
+    y, base = samples[0] if dur < 0.45 else samples[-1]   # 短い音は短い鳴き声、長い音は長い鳴き声
+    steps = 12 * np.log2(f0 / base)
+    z = librosa.effects.pitch_shift(y, sr=SR, n_steps=steps)
+    rate = len(z) / SR / max(dur, 0.12)
+    z = librosa.effects.time_stretch(z, rate=float(np.clip(rate, 0.5, 2.5)))
+    n = int(dur * SR)
+    z = z[:n] if len(z) >= n else np.pad(z, (0, n - len(z)))
+    fade = min(int(0.04 * SR), n // 4)
+    z[-fade:] *= np.linspace(1, 0, fade)
+    return z
+
+
+def render_real(part, voice, beat, samples, octave_up=False):
+    total = sum(b for _, b in part) * beat
+    y = np.zeros(int(total * SR) + SR)
+    pos = 0.0
+    for note, beats in part:
+        if note:
+            f0 = hz(note) * (2 if octave_up else 1)
+            dur = beats * beat * (0.92 if beats < 2 else 0.98)
+            s = real_note(samples, f0, dur) * VOICES[voice]["gain"]
+            a = int(pos * SR)
+            y[a:a + len(s)] += s
+        pos += beats * beat
+    return y
+
+
+def build_real(path, samples_spec, tempo=160):
+    samples = load_samples(samples_spec)
+    beat = 60 / tempo
+    alto, tenor, bass = accompaniment()
+    parts = {"S": SOPRANO, "A": alto, "T": tenor, "B": bass}
+    length = max(int(sum(b for _, b in p) * beat * SR) + SR for p in parts.values())
+    left, right = np.zeros(length), np.zeros(length)
+    for name, part in parts.items():
+        y = render_real(part, name, beat, samples, octave_up=(name == "B"))[:length]
+        y = np.pad(y, (0, length - len(y)))
+        pan = VOICES[name]["pan"]
+        left += y * (1 - pan) / 2
+        right += y * (1 + pan) / 2
+    left = reverb(left, mix=0.15)
+    right = reverb(right, mix=0.15, rng=np.random.default_rng(7))
+    end = int((sum(b for _, b in SOPRANO) * beat + 0.5) * SR)
+    st = np.stack([left[:end], right[:end]], 1)
+    st = st / (np.abs(st).max() + 1e-9) * 0.8
+    with wave.open(path, "wb") as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
+        w.writeframes((st * 32767).astype(np.int16).tobytes())
+    return end / SR
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("out")
     ap.add_argument("--tempo", type=float, default=160)
+    ap.add_argument("--sample", action="append", default=[],
+                    help="本物の鳴き声素材 'ファイル:開始秒:長さ秒'（短い順に2つ程度。指定すると実録モード）")
     a = ap.parse_args()
-    print(f"{a.out} {build(a.out, a.tempo):.2f}s")
+    if a.sample:
+        specs = [(x.rsplit(":", 2)[0], float(x.rsplit(":", 2)[1]), float(x.rsplit(":", 2)[2])) for x in a.sample]
+        print(f"{a.out} {build_real(a.out, specs, a.tempo):.2f}s")
+    else:
+        print(f"{a.out} {build(a.out, a.tempo):.2f}s")

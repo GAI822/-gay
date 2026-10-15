@@ -77,6 +77,30 @@ def video_body(meta, publish_at, privacy="public"):
     }
 
 
+def add_captions(tok, vid, srts):
+    """字幕ファイル（name.<lang>.srt）を動画に追加する。同じ言語の字幕が既にあれば飛ばす。"""
+    if "https://www.googleapis.com/auth/youtube.force-ssl" not in scopes(tok):
+        # 字幕の追加には youtube.force-ssl の権限が必要
+        print("字幕: 鍵に字幕の権限がないため省略（YouTube Studioで手動追加、または鍵を取り直す）")
+        return False
+    h = {"Authorization": f"Bearer {tok}"}
+    r = requests.get(f"{API}/captions", params={"part": "snippet", "videoId": vid}, headers=h, timeout=30)
+    r.raise_for_status()
+    have = {c["snippet"]["language"] for c in r.json().get("items", [])}
+    for srt in srts:
+        lang = Path(srt).suffixes[-2].lstrip(".")
+        if lang in have:
+            print("caption", lang, "already exists")
+            continue
+        snippet = {"snippet": {"videoId": vid, "language": lang, "name": lang}}
+        files = {"metadata": (None, json.dumps(snippet), "application/json; charset=UTF-8"),
+                 "media": (Path(srt).name, Path(srt).read_bytes(), "application/octet-stream")}
+        cr = requests.post(f"{UPLOAD}/captions", params={"uploadType": "multipart", "part": "snippet"},
+                           headers=h, files=files, timeout=60)
+        print("caption", lang, cr.status_code, "" if cr.ok else cr.text[:200])
+    return True
+
+
 def upload(meta_path, publish_at, dry_run, privacy="public", title_prefix=""):
     meta_path = Path(meta_path)
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
@@ -102,18 +126,7 @@ def upload(meta_path, publish_at, dry_run, privacy="public", title_prefix=""):
     r.raise_for_status()
     vid = r.json()["id"]
     print("uploaded:", f"https://youtube.com/shorts/{vid}", r.json()["status"].get("privacyStatus"))
-    if "https://www.googleapis.com/auth/youtube.force-ssl" not in scopes(tok):
-        # 字幕の追加には youtube.force-ssl の権限が必要
-        print("字幕: 鍵に字幕の権限がないため省略（YouTube Studioで手動追加、または鍵を取り直す）")
-        srts = []
-    for srt in srts:
-        lang = srt.suffixes[-2].lstrip(".")
-        snippet = {"snippet": {"videoId": vid, "language": lang, "name": lang}}
-        files = {"metadata": (None, json.dumps(snippet), "application/json; charset=UTF-8"),
-                 "media": (srt.name, srt.read_bytes(), "application/octet-stream")}
-        cr = requests.post(f"{UPLOAD}/captions", params={"uploadType": "multipart", "part": "snippet"},
-                           headers=h, files=files, timeout=60)
-        print("caption", lang, cr.status_code)
+    add_captions(tok, vid, srts)
     log = meta_path.parent / "uploaded.jsonl"
     with open(log, "a") as f:
         f.write(json.dumps({"id": meta["id"], "youtube_id": vid, "publish_at": publish_at}) + "\n")
@@ -145,10 +158,17 @@ if __name__ == "__main__":
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--privacy", choices=["public", "unlisted", "private"], default="public")
+    ap.add_argument("--add-captions", metavar="VIDEO_ID",
+                    help="投稿済みの動画に字幕だけ追加する（meta と同じ場所の <id>.<lang>.srt を使う）")
     ap.add_argument("--title-prefix", default="", help="例: '[TEST] '")
     a = ap.parse_args()
     if a.check:
         check()
+    elif a.meta and a.add_captions:
+        mp = Path(a.meta)
+        mid = json.loads(mp.read_text(encoding="utf-8"))["id"]
+        if not add_captions(access_token(), a.add_captions, sorted(mp.parent.glob(f"{mid}.*.srt"))):
+            sys.exit(1)
     elif a.meta:
         upload(a.meta, a.publish_at, a.dry_run, a.privacy, a.title_prefix)
     else:

@@ -123,7 +123,8 @@ def check():
     tok = access_token()
     sc = scopes(tok)
     print("鍵の更新: OK | 権限:", " ".join(x.rsplit("/", 1)[-1] for x in sorted(sc)))
-    if "https://www.googleapis.com/auth/youtube.upload" not in sc and "https://www.googleapis.com/auth/youtube" not in sc:
+    if not sc & {"https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube",
+                 "https://www.googleapis.com/auth/youtube.force-ssl"}:  # force-ssl もアップロードを含む
         sys.exit("アップロード権限がありません")
     if not sc & {"https://www.googleapis.com/auth/youtube.force-ssl", "https://www.googleapis.com/auth/youtube.readonly",
                  "https://www.googleapis.com/auth/youtube"}:

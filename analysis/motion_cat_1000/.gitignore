@@ -1,0 +1,5 @@
+tabs/
+tabs_deep/
+thumbs/
+*.log
+haarcascade_frontalcatface_extended.xml

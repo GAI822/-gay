@@ -1,7 +1,22 @@
 """dataset.json（再生100万回以上の猫ショート）を分類・集計し、サムネを解析して report_stats.txt を出す。"""
+# 猫の顔検出（CascadeClassifier）は OpenCV 4 系が必要（5 系で削除された）
 import json, re, os, subprocess, statistics as st, collections, concurrent.futures as cf
 import cv2, numpy as np
 R = json.load(open("dataset.json"))
+# 1チャンネルが結果を支配しないよう、チャンネルごとに再生数上位30本まで
+_c = collections.Counter(); _k = []
+for r in R:
+    _c[r["channel"]] += 1
+    if _c[r["channel"]] <= 30: _k.append(r)
+R = _k
+G = {
+ "実写の飼い猫": "Merv the Cat (...& Chad)|つなまよの親バカ日記|KittenSneeze|meow__cash|Noodle and Bun|PECO Channel - Heartwarming pet videos -|Dusty Douglas|布丁仔和泡芙妹的一天|MUNEO|Furry Loyal Pals|【子ライオン】みにら日記‐MINIRA‐Diary‐|AaronsAnimals|The World of Cats|そり耳ネコもすけのパパ物語|Daily Dose Of Internet|kittenchannel|Daniel Ferri|Kitten Street|OwlKitty|Kat|반려동무|The Calm Cat Whisperer |Xing's World|Cole and Marmalade|ko tama|ごま猫|shion紫音|短足マンチカンのプリンとメル|猫の黒ちゃんねる|Swizzlebag|Married with Kittens & Kids|Ana Paula Wolffberg|Rumble Viral|Woof World|Pet On Tube|ZzzOversea|Superb Cat|Clawsome Cats|Socks|Aquarium Info|Stokes Twins",
+ "実写＋人の声・字幕でキャラ化": "POVINME|私はDくん|QuellocheDoppia|Escardi Fandubs|Tentang Warga|Ozzy Man Reviews|The Kiffness|I'm kitting!",
+ "AI生成のリアル猫": "Chef Cat ChangAn |The Cat Adventures|XoSen7|Lanboc|Real Happy|Cute Cat|Asu Daily AI|West Lake AI Animal|☆WhiteCat358☆|AI猫にゃんこちん Official|mini meownmeow|Frastiction|BlowMeow AI|joyfulmoments_247|Animal Vibe|Pastel Cat World|ArcadeGaming|Petflix Show ",
+ "ミーム素材の編集": "ほのぼの猫ミーム|Pusa|SherCAT H. Junior|Meow madness|FeliumMemes|Croma Eye|W&W|Tori|FREYU|HAPIKATO|メロ|またたび|Nostalgic Genius|Green Chick|Nizaritoo|TOPVEXY|CREEPY MEME|Bimomi|BGGT Maker|TheFrenchSpartan|Mafier|RawD3V|ミーム遣唐使|SAD CYBORG|TheRealSullyG|DubstepGutter|BOOSTutorial Piano|Timer Topia|Jaw-Dropping Facts|el prana|猫あるあるソング - もしぬこ",
+}
+GM = {ch: g for g, chs in G.items() for ch in chs.split("|")}
+for r in R: r["genre"] = GM.get(r["channel"], "アニメ・子ども向け・ゲーム")
 D = {v["id"]: v for v in json.load(open("discover.json"))}
 for r in R:
     if r.get("duration") is None and r["id"] in D: r["duration"] = D[r["id"]].get("duration")
@@ -49,9 +64,14 @@ def thumb_feats(f):
     txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True).stdout
     words = [x for x in re.findall(r"[A-Za-z]{3,}|[぀-ヿ一-鿿]{2,}", txt)]
     return {"bright": float(g.mean()), "sat": float(hsv[..., 1].mean()), "contrast": float(g.std()),
-            "catface": len(faces) > 0, "catface_area": fa, "ocr_words": len(words)}
+            "catface": len(faces) > 0, "catface_area": fa}
+def ocr(f):
+    txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True).stdout
+    return len(re.findall(r"[A-Za-z]{3,}|[\u3040-\u30ff\u4e00-\u9fff]{2,}", txt))
+for r, p in zip(R, paths):
+    if p: r.update(thumb_feats(p))
 with cf.ThreadPoolExecutor(4) as ex:
-    for r, ft in zip(R, ex.map(lambda p: thumb_feats(p) if p else {}, paths)): r.update(ft)
+    for r, n in zip(R, ex.map(lambda p: ocr(p) if p else 0, paths)): r["ocr_words"] = n
 json.dump(R, open("dataset_features.json", "w"), ensure_ascii=False, indent=0)
 
 # ---- 集計 ----
@@ -60,6 +80,13 @@ P = lambda *a: out.append(" ".join(str(x) for x in a))
 V = [r["views"] for r in R]
 P("n =", len(R), "| channels =", len({r['channel'] for r in R}), "| views median =", f"{st.median(V):,.0f}", "| total =", f"{sum(V):,}")
 P("found by motion/AI-cat search queries:", sum(r["found_by_motion_query"] for r in R))
+P("\n--- ジャンル（チャンネル単位で分類）: 本数 / 再生数中央値 / 登録者に対する倍率中央値 / 長さ中央値 ---")
+for g in list(G) + ["アニメ・子ども向け・ゲーム"]:
+    sub = [r for r in R if r["genre"] == g]
+    if not sub: continue
+    rat = [r["views"] / r["subs"] for r in sub if r.get("subs")]
+    du = [r["duration"] for r in sub if r.get("duration")]
+    P(f"{g:18s} {len(sub):4d} ({len(sub)/len(R):.0%}) ch={len({r['channel'] for r in sub}):3d} median {st.median(r['views'] for r in sub):>11,.0f}  views/subs {st.median(rat) if rat else 0:6.1f}  dur {st.median(du) if du else '-'}s(n={len(du)})")
 P("\n--- 形式（タイトルのキーワード）: 本数 / 再生数中央値 ---")
 for k in K:
     sub = [r["views"] for r in R if k in r["tags"]]
@@ -92,6 +119,14 @@ P("本数上位チャンネル", c.most_common(15))
 P("1本だけ100万超えのチャンネル", sum(1 for v in c.values() if v == 1), "/", len(c))
 P("\n--- 再生数トップ30 ---")
 for r in R[:30]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['tags']} {r['channel'][:22]} | {r['title'][:70]}")
+P("\n--- ジャンル別サムネ ---")
+for g in list(G) + ["アニメ・子ども向け・ゲーム"]:
+    T2 = [r for r in R if r["genre"] == g and "bright" in r]
+    if T2: P(f"{g:18s} n={len(T2):4d} 猫の顔正面 {sum(r['catface'] for r in T2)/len(T2):.0%}  顔アップ {sum(r['catface_area']>=.10 for r in T2)/len(T2):.0%}  文字あり {sum(r['ocr_words']>=3 for r in T2)/len(T2):.0%}  明るさ {st.median(r['bright'] for r in T2):.0f}")
+P("\n--- 人の動き系（dance / fight / human_like）---")
+M = [r for r in R if set(r["tags"]) & {"dance", "fight", "human_like"}]
+P("n", len(M), "median", f"{st.median(r['views'] for r in M):,.0f}", collections.Counter(r["genre"] for r in M).most_common())
+for r in M[:40]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['genre'][:6]} {r['channel'][:20]} | {r['title'][:70]}")
 P("\n--- AI 系トップ30 ---")
-for r in [r for r in R if "ai" in r["tags"]][:30]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['tags']} {r['channel'][:22]} | {r['title'][:70]}")
+for r in [r for r in R if r["genre"] == "AI生成のリアル猫"][:30]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['tags']} {r['channel'][:22]} | {r['title'][:70]}")
 open("report_stats.txt", "w").write("\n".join(out)); print("\n".join(out))

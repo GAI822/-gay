@@ -3,3 +3,7 @@ tabs_deep/
 thumbs/
 *.log
 haarcascade_frontalcatface_extended.xml
+discover.json
+channels.json
+dataset.json
+dataset_features.json

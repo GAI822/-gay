@@ -7,3 +7,4 @@ discover.json
 channels.json
 dataset.json
 dataset_features.json
+ocr_cache.json

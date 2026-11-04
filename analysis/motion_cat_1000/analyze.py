@@ -65,13 +65,18 @@ def thumb_feats(f):
     words = [x for x in re.findall(r"[A-Za-z]{3,}|[぀-ヿ一-鿿]{2,}", txt)]
     return {"bright": float(g.mean()), "sat": float(hsv[..., 1].mean()), "contrast": float(g.std()),
             "catface": len(faces) > 0, "catface_area": fa}
+OCR = json.load(open("ocr_cache.json")) if os.path.exists("ocr_cache.json") else {}
 def ocr(f):
+    if f in OCR: return OCR[f]
     txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True).stdout
-    return len(re.findall(r"[A-Za-z]{3,}|[\u3040-\u30ff\u4e00-\u9fff]{2,}", txt))
+    OCR[f] = len(re.findall(r"[A-Za-z]{3,}|[\u3040-\u30ff\u4e00-\u9fff]{2,}", txt))
+    if len(OCR) % 50 == 0: json.dump(OCR, open("ocr_cache.json", "w"))
+    return OCR[f]
 for r, p in zip(R, paths):
     if p: r.update(thumb_feats(p))
 with cf.ThreadPoolExecutor(4) as ex:
     for r, n in zip(R, ex.map(lambda p: ocr(p) if p else 0, paths)): r["ocr_words"] = n
+json.dump(OCR, open("ocr_cache.json", "w"))
 json.dump(R, open("dataset_features.json", "w"), ensure_ascii=False, indent=0)
 
 # ---- 集計 ----

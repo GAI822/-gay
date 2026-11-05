@@ -1,0 +1,149 @@
+n = 1169 | channels = 166 | views median = 3,100,000 | total = 14,003,000,000
+検索で直接見つかった動画（ショートタブ上位60本と重なったもの）: 0
+
+--- ジャンル（チャンネル単位で分類）: 本数 / 再生数中央値 / 登録者に対する倍率中央値 / 長さ中央値 ---
+実写の飼い猫              401 (34%) ch= 41 median   2,800,000  views/subs    5.3  dur -s(n=0)
+実写＋人の声・字幕でキャラ化      117 (10%) ch=  8 median   3,700,000  views/subs    4.6  dur -s(n=0)
+AI生成の猫               41 (4%) ch= 12 median   5,100,000  views/subs   27.0  dur -s(n=0)
+ミーム猫の合成・編集          253 (22%) ch= 36 median   3,100,000  views/subs    7.0  dur -s(n=0)
+アニメ・子ども向け・ゲーム       357 (31%) ch= 69 median   3,500,000  views/subs    1.7  dur -s(n=0)
+
+--- 形式（タイトルのキーワード）: 本数 / 再生数中央値 ---
+ai            38 (3%)  median    5,650,000
+dance         62 (5%)  median    2,350,000
+fight         25 (2%)  median    2,700,000
+music         89 (8%)  median    4,000,000
+story        149 (13%)  median    3,900,000
+human_like     3 (0%)  median    1,300,000
+meme         248 (21%)  median    3,100,000
+kids_anim    171 (15%)  median    3,300,000
+pov           35 (3%)  median   15,000,000
+food          67 (6%)  median    7,200,000
+
+--- 長さ（分かったもの）---
+
+--- タイトル ---
+len median 47 | hashtag>0 55% | emoji>0 36% | ? 7% | ! 22% | 言葉なし 1%
+lang [('latin', 977), ('ja', 161), ('zh', 31)]
+
+--- サムネ（動画内フレーム）---
+n 1169 | 猫の顔が正面で写る 31% | 顔が画面の10%以上（アップ） 6% | 文字あり(3語以上) 51% | 明るさ中央値 125 | 彩度中央値 77
+
+--- チャンネル規模と再生数（登録者に対する倍率）---
+views/subs median 4.9 | 登録者10万未満のチャンネルの動画 8% | 1万未満 1%
+本数上位チャンネル [('Chef Cat ChangAn ', 30), ('POVINME', 30), ('Noodle and Bun', 30), ('The Cat Adventures', 30), ('Pusa', 30), ('XoSen7', 30), ('Dusty Douglas', 30), ('私はDくん', 30), ('Merv the Cat (...& Chad)', 30), ('つなまよの親バカ日記', 30), ('ほのぼの猫ミーム', 30), ('布丁仔和泡芙妹的一天', 30), ('PECO Channel - Heartwarming pet videos -', 30), ('TVアニメ『ヤニねこ』公式【ハメちゃんねる】', 30), ('MUNEO', 29)]
+1本だけ100万超えのチャンネル 62 / 166
+
+--- 再生数トップ30 ---
+ 995,000,000 Nones [] Canciones Infantiles - | Johny y el Gato viven Aventuras en el Preescolar 🐱🎒
+ 491,000,000 Nones ['food'] Chef Cat ChangAn  | How Chef Cat Makes the BIGGEST Lollipop in the World!🍭| Cat Cooking Fo
+ 418,000,000 Nones [] Chef Cat ChangAn  | Cat ChangAn Makes the World's LARGEST Gummy Bear ！| Homemade Candy | C
+ 335,000,000 Nones ['food'] Chef Cat ChangAn  | Longyin Poached Egg Is So Cute!🤤😲😍 (ASMR) | Chef Cat Cooking | Creativ
+ 298,000,000 Nones ['kids_anim'] King English Kids | The animals on the bus (Cat, Dog, Cow) #theanimals #wheelsonthebus
+ 298,000,000 Nones ['food'] Chef Cat ChangAn  | Only 3 Ingrendients！Cat Makes Orange Custard🍊 | Cat Cooking ASMR | Cut
+ 256,000,000 Nones ['pov'] POVINME | What should we name him? 😂 he’s a talkative little kitty 🐱#pov #cats #
+ 244,000,000 Nones ['food'] Chef Cat ChangAn  | 😲REAL Fruit Cake + Mango Latte, So Perfect!😻 | Chef Cat Cooking  #tikt
+ 224,000,000 Nones ['food'] Chef Cat ChangAn  | Meow~Super Huge Watermelon Sago Dessert!🍉🍡|ASMR Summer Drinks | Cat Co
+ 190,000,000 Nones ['food'] Chef Cat ChangAn  | Have You Ever Eaten Strawberries Like This?  | Cat Cooking Food | Cute
+ 189,000,000 Nones [] Furry Loyal Pals | 😂 SIREN ALERT! Siamese cat (Mochi) screams for soldier!#cat
+ 186,000,000 Nones ['food'] Chef Cat ChangAn  | Cooking With Cat!Yummy Idea With Marshmallow | Marshmallow Sandwich Co
+ 183,000,000 Nones [] Chef Cat ChangAn  | Non-Fried！So Crispy Chinese Pastry Made by Chef Cat! | Perfect For Bre
+ 183,000,000 Nones ['food'] Chef Cat ChangAn  | Cat Cooking Show: Strawberry Yakult Soda with ChangAn | Easy Drinks Re
+ 173,000,000 Nones ['food'] Chef Cat ChangAn  | MasterChef Cat Demonstrates How to Make Your Own CAVIAR!😺🤤 | Chef Cat 
+ 160,000,000 Nones ['story'] True and the Rainbow K | Giant Robot Cat Is On The Loose! 🤖 | NEW Mini Rescue #trueandtherainbo
+ 159,000,000 Nones [] Chef Cat ChangAn  | Chef ChangAn: Best Orange Jelly Cake ,Don't Miss!🍊 | Homade Dessert Re
+ 156,000,000 Nones ['food'] Chef Cat ChangAn  | 😉The Best Way To Make Pomegranate Juice! | Chef Cat Cooking #tiktok #S
+ 154,000,000 Nones ['food'] Chef Cat ChangAn  | How To Make A Fresh Strawberry Cake?🍓😻 | Chef Cat Cooking  #tiktok #Sh
+ 153,000,000 Nones ['kids_anim'] Noodle and Bun | Thank you for 1 MILLION GIMME SNACK #cat #animation
+ 145,000,000 Nones ['food'] Chef Cat ChangAn  | Meow 🍉Awesome Iced Watermelon Party Keg😍 | Easy Summer Drinks | Cat Co
+ 125,000,000 Nones [] AaronsAnimals | My wife taught our foster cat to play the piano... #petpiano
+ 125,000,000 Nones ['food'] Chef Cat ChangAn  | Chef Cat Cooking :  Christmas Orange Cookies 🍪| Cat Cooking Food | Cut
+ 117,000,000 Nones [] SugarStar | SugarStar'a New Kitten's Name Reveal! #sugarstar #cute #shorts
+ 116,000,000 Nones ['kids_anim'] Alpakarl animation | After the cats failed at jump rope in Squid Game 3
+ 111,000,000 Nones ['food'] Chef Cat ChangAn  | Real Pearls! 🤤Let's Make Bubble Tea with Cat | ASMR Milk Tea | Cat Coo
+ 109,000,000 Nones ['food'] Chef Cat ChangAn  | Cat ChangAn Makes The World's LARGEST Ham Instant Noodles! | Homemade 
+  80,000,000 Nones ['music'] Kitty Cat Song | Kucing Nyanyi Pok Ame ame Belalang Kupu kupu #kucing #kucinglucu #kuci
+  67,000,000 Nones ['food'] Chef Cat ChangAn  | Cat‘s Giant Food Time!A Giant Bubble Milk Tea Jelly! | Cute Cat TikTok
+  65,000,000 Nones [] Chef Cat ChangAn  | Michelin Chef Cat Making Square Strawberry Chocolate😻🍓#chefcat  #catso
+
+--- ジャンル別サムネ ---
+実写の飼い猫             n= 401 猫の顔正面 30%  顔アップ 7%  文字あり 54%  明るさ 125
+実写＋人の声・字幕でキャラ化     n= 117 猫の顔正面 29%  顔アップ 3%  文字あり 74%  明るさ 119
+AI生成の猫             n=  41 猫の顔正面 29%  顔アップ 0%  文字あり 41%  明るさ 115
+ミーム猫の合成・編集         n= 253 猫の顔正面 52%  顔アップ 11%  文字あり 55%  明るさ 124
+アニメ・子ども向け・ゲーム      n= 357 猫の顔正面 18%  顔アップ 1%  文字あり 40%  明るさ 134
+
+--- 人の動き系（dance / fight / human_like）---
+n 88 median 2,400,000 [('アニメ・子ども向け・ゲーム', 37), ('ミーム猫の合成・編集', 35), ('実写の飼い猫', 12), ('AI生成の猫', 4)]
+  48,000,000 Nones ミーム猫の合 Tori | OIIA Cat x Chicken Jockey
+  48,000,000 Nones アニメ・子ど Thầy Huy Kid Dance | Tom & Jerry Be Like… 😂🐱🐭 | Follow Me #trending #funny #cat #mouse
+  43,000,000 Nones アニメ・子ど Thầy Huy Kid Dance | POV: Tom & Jerry in Real Life 😂🐱🐭 | Follow Me #trending #shorts #funny
+  39,000,000 Nones ミーム猫の合 DubstepGutter | MEOW 🤣 #edm #music #dubstep #edmtiktok #edmmusic #dancemusic #electron
+  36,000,000 Nones アニメ・子ど Ssuleim | Dream Devil's Sad Cat Dance #Meme #Shorts
+  33,000,000 Nones アニメ・子ど Thầy Huy Kid Dance | What % would you give Kitty? 🔥👉 | Follow Me | Subway surfer + Brazil d
+  21,000,000 Nones アニメ・子ど Thầy Huy Kid Dance | Jerry Be Like: Surprise, Tom! 😂🐭🐱 | Follow Me #trending #shorts #funny
+  18,000,000 Nones ミーム猫の合 Tori | OIIA CAT x SODA POP (KPop Demon Hunters Scene)
+  18,000,000 Nones アニメ・子ど pi geon | sad cat dance
+  15,000,000 Nones ミーム猫の合 W&W | Imagine your cat at a rave 😹 #OIIAOIIA #cat #electronicmusic #shorts
+  15,000,000 Nones アニメ・子ど Noodle and Bun | funny cat dancing
+  10,000,000 Nones ミーム猫の合 W&W | OIIA all around the world 🌍 😹 #OIIAOIIA #cat #electronicmusic #shorts 
+   8,500,000 Nones アニメ・子ど マヨネーズ.exe【Nekotaro】 | Move Oiia Cat with your finger! [Kahoot!]
+   8,300,000 Nones ミーム猫の合 Tori | OIIA CAT x DAISY BELL (TADC / The Amazing Digital Circus Ep. 6 Scene)
+   8,000,000 Nones 実写の飼い猫 Pet On Tube | Golden Retriever stops cat friend from fighting
+   7,700,000 Nones アニメ・子ど LexL Animation | Sad Cat Dance 💗 Anya Forger | Spy x Family Animation
+   7,500,000 Nones ミーム猫の合 The Cat Adventures | 🔥 Banana Cat Fights Skibidi Toilet 🔥 #bananacat #happycat #skibiditoil
+   7,100,000 Nones ミーム猫の合 Meow madness | I Want to be Ninja #funnycats #ninja #cat
+   6,600,000 Nones 実写の飼い猫 ko tama | 立って横歩きする猫
+   6,100,000 Nones アニメ・子ど Drudlez | HELLTAKER SAD CAT Dance Meme
+   6,100,000 Nones ミーム猫の合 Lanboc | Banana Cat don't like CHIPI CHAPA😹🍌Part 1
+   5,500,000 Nones ミーム猫の合 Tori | OIIA CAT x YOUR IDOL (KPop Demon Hunters Scene)
+   5,400,000 Nones アニメ・子ど In My Way I Fund | Epic 🐈 Cat battle.  War for Territory #catfight
+   5,300,000 Nones アニメ・子ど SugarStar | My cat's new friend! #kitten #unboxing #shorts
+   5,000,000 Nones ミーム猫の合 Tori | OIIA Cat x Minecraft
+   4,900,000 Nones アニメ・子ど DDToon | Hashira's sad cat dance meme (Giyu, Kyojuro, Sanemi, Muichiro) #demons
+   4,800,000 Nones ミーム猫の合 Lanboc | Banana Cat don't like CHIPI CHAPA😹🍌Part 2
+   4,800,000 Nones アニメ・子ど Thầy Huy Kid Dance | Kitty: Hello Girl! 😍 | Follow Me | 67 (Six Seven) Dance Trend #trendin
+   4,700,000 Nones 実写の飼い猫 MUNEO | ママと猫の喧嘩の結末。
+   4,400,000 Nones 実写の飼い猫 つなまよの親バカ日記 | A cat fighting between reason and instinct lol
+   4,300,000 Nones アニメ・子ど 🌼Hinagiku🧠 | Literature Cat Dance (DDLC Sad Cat Dance animation)
+   4,000,000 Nones ミーム猫の合 W&W | Live Action OIIA Spinning Cat 😹💚 #OIIAOIIA #cat #electronicmusic #shor
+   3,900,000 Nones 実写の飼い猫 つなまよの親バカ日記 | [Fight breaks out!?] A cat hisses at his siblings for the first time l
+   3,800,000 Nones アニメ・子ど True and the Rainbow | Mystery Cat Box?? 📦✨ NEW Bartleby Short #trueandtherainbowkingdom #cat
+   3,300,000 Nones アニメ・子ど Baby Shark - Pinkfon | ​@Kikipuppup always end up fighting?! 🤷 #kitten #puppy #babysharkdance
+   3,300,000 Nones ミーム猫の合 BOOSTutorial Piano | chipi chipi chapa chapa dubi dubi daba daba (Piano Tutorial) #cat
+   3,300,000 Nones アニメ・子ど Thầy Huy Kid Dance | Baby Shakira | Dai Dai Dance - Kitty Fancam | Follow Me #trending #fyp
+   3,200,000 Nones AI生成の猫 joyfulmoments_247 | 😼Amazing Ninja Cats Fly🥷 #catskills #ninjacat  #catshorts #catlover #s
+   2,900,000 Nones ミーム猫の合 Meow madness | I Almost a Ninja 🥷🏻#ninja #cat #funnycats #ninjacat
+   2,700,000 Nones ミーム猫の合 Pusa | Iconic Dancing Cats Then & Now ❤️🥺
+
+--- AI 系トップ30 ---
+  27,000,000 Nones [] ☆WhiteCat358☆ | Cute cat dropped into a well 😱 #cat #animalart #cute #shortvideo #shor
+  20,000,000 Nones ['music'] Petflix Show  | Missing Cat Returns Home
+  19,000,000 Nones [] Pastel Cat World | I was driving a car when I turned a curve and there was a kitten in fr
+  17,000,000 Nones ['ai', 'story', 'kids_anim'] ☆WhiteCat358☆ | 🐱A trap set for the cute cat😱 #aicat  #cats #cartoon #cute  #funny  #a
+  14,000,000 Nones ['ai', 'story'] Cute Cat | Cute Cat do Make_up  💄 #cat #ai #cats #aicat #cute #cutecat  #funny #k
+  13,000,000 Nones ['ai', 'story'] Cute Cat | Pregnant Cute Cat   #cat #ai #cats #aicat #cute #cutecat  #funny #kitt
+  12,000,000 Nones ['story'] ☆WhiteCat358☆ | Cute cat that fell out of plane 🐱 #cat #catshorts #kitten #cute #aiart
+  11,000,000 Nones ['ai'] West Lake AI Animal | Never Interrupt a Cat’s Lunch #cathero #funnycats
+  10,000,000 Nones ['ai', 'story'] Cute Cat | Ballet Cute Cat 🩰           #cat #ai #cats #aicat #cute #cutecat #funn
+   9,400,000 Nones ['ai', 'story', 'kids_anim'] ☆WhiteCat358☆ | Cute cat girl avenging her mother🔥🥊 #aicat  #cats #cartoon #cute    #a
+   8,900,000 Nones ['ai'] Asu Daily AI | funny cat video compilation, cool orange cat #cat #funny #comedy #ai
+   8,500,000 Nones ['ai', 'story'] Cute Cat | Cinderella Cat    #cat #ai #cats #aicat #cute #cutecat #funny #kitten 
+   7,800,000 Nones ['ai'] Cute Cat | Threads of Hope 🧵             #cat #ai #cats #aicat #cute #cutecat #fu
+   7,800,000 Nones ['ai', 'story'] mini meownmeow | Poor cat became a fashion designer #catshorts #cutecat #ai #aicat #cat
+   7,500,000 Nones ['ai'] West Lake AI Animal | Not All Heroes Wear Capes | Cat Hero
+   7,500,000 Nones ['ai', 'story'] Cute Cat | Cute Cat like her mum's 👠           #cat #ai #cats #aicat #cute #cutec
+   6,600,000 Nones ['ai', 'food'] Asu Daily AI | This is the funniest cat selling meatballs video I've ever made #cat #
+   6,100,000 Nones ['ai'] West Lake AI Animal | Cat flushes alarm phone to get more sleep #catlife #funny
+   6,100,000 Nones ['ai'] Asu Daily AI | This is how it is, if the cat is being naughty, we will be naughty bac
+   5,200,000 Nones ['ai', 'story', 'kids_anim'] Cute Cat | The Model Cat 👠                 #cat #ai #cats #aicat #shorts #story #
+   5,100,000 Nones ['ai'] Asu Daily AI | Compilation of funny ginger cat videos #funny #cat #kucing #cute #come
+   3,700,000 Nones ['ai'] BlowMeow AI | This Cat's Magic Trick SHOCKED Everyone!
+   3,200,000 Nones ['fight'] joyfulmoments_247 | 😼Amazing Ninja Cats Fly🥷 #catskills #ninjacat  #catshorts #catlover #s
+   3,000,000 Nones ['ai', 'story'] mini meownmeow | OMG!The kitten suddenly encountered purple Worm🐛#ai #catstory #aicat #
+   2,800,000 Nones ['ai'] Asu Daily AI | Viral funny cat video, guaranteed to make you laugh #cat #funny #comed
+   2,700,000 Nones ['ai', 'story'] Cute Cat | Cute Cat Do make-up 💄     #cat #ai #cats #aicat #cute #cutecat #funny 
+   2,600,000 Nones ['story'] Pastel Cat World | While driving, I found a wet kitten on the road and rescued it! #Short
+   2,500,000 Nones ['kids_anim'] ArcadeGaming | Chubby Cat Series EP01- This Cat Ate TOO Much Candy 😂🍬 #funny  #cartoo
+   2,200,000 Nones ['story', 'kids_anim'] ☆WhiteCat358☆ | Tragedy of a Cute Cat Bride 😱　 #cat #aicats #catlovers #story #aivideo
+   1,900,000 Nones ['fight'] joyfulmoments_247 | Most Talented Cats #talentedcats #ninjacat #catskills #shorts

@@ -10,10 +10,10 @@ for r in R:
     if _c[r["channel"]] <= 30: _k.append(r)
 R = _k
 G = {
- "実写の飼い猫": "Merv the Cat (...& Chad)|つなまよの親バカ日記|KittenSneeze|meow__cash|Noodle and Bun|PECO Channel - Heartwarming pet videos -|Dusty Douglas|布丁仔和泡芙妹的一天|MUNEO|Furry Loyal Pals|【子ライオン】みにら日記‐MINIRA‐Diary‐|AaronsAnimals|The World of Cats|そり耳ネコもすけのパパ物語|Daily Dose Of Internet|kittenchannel|Daniel Ferri|Kitten Street|OwlKitty|Kat|반려동무|The Calm Cat Whisperer |Xing's World|Cole and Marmalade|ko tama|ごま猫|shion紫音|短足マンチカンのプリンとメル|猫の黒ちゃんねる|Swizzlebag|Married with Kittens & Kids|Ana Paula Wolffberg|Rumble Viral|Woof World|Pet On Tube|ZzzOversea|Superb Cat|Clawsome Cats|Socks|Aquarium Info|Stokes Twins",
+ "実写の飼い猫": "Chef Cat ChangAn |Merv the Cat (...& Chad)|つなまよの親バカ日記|KittenSneeze|meow__cash|PECO Channel - Heartwarming pet videos -|Dusty Douglas|布丁仔和泡芙妹的一天|MUNEO|Furry Loyal Pals|【子ライオン】みにら日記‐MINIRA‐Diary‐|AaronsAnimals|The World of Cats|そり耳ネコもすけのパパ物語|Daily Dose Of Internet|kittenchannel|Daniel Ferri|Kitten Street|OwlKitty|Kat|반려동무|The Calm Cat Whisperer |Xing's World|Cole and Marmalade|ko tama|ごま猫|shion紫音|短足マンチカンのプリンとメル|猫の黒ちゃんねる|Swizzlebag|Married with Kittens & Kids|Ana Paula Wolffberg|Rumble Viral|Woof World|Pet On Tube|ZzzOversea|Superb Cat|Clawsome Cats|Socks|Aquarium Info|Stokes Twins",
  "実写＋人の声・字幕でキャラ化": "POVINME|私はDくん|QuellocheDoppia|Escardi Fandubs|Tentang Warga|Ozzy Man Reviews|The Kiffness|I'm kitting!",
- "AI生成のリアル猫": "Chef Cat ChangAn |The Cat Adventures|XoSen7|Lanboc|Real Happy|Cute Cat|Asu Daily AI|West Lake AI Animal|☆WhiteCat358☆|AI猫にゃんこちん Official|mini meownmeow|Frastiction|BlowMeow AI|joyfulmoments_247|Animal Vibe|Pastel Cat World|ArcadeGaming|Petflix Show ",
- "ミーム素材の編集": "ほのぼの猫ミーム|Pusa|SherCAT H. Junior|Meow madness|FeliumMemes|Croma Eye|W&W|Tori|FREYU|HAPIKATO|メロ|またたび|Nostalgic Genius|Green Chick|Nizaritoo|TOPVEXY|CREEPY MEME|Bimomi|BGGT Maker|TheFrenchSpartan|Mafier|RawD3V|ミーム遣唐使|SAD CYBORG|TheRealSullyG|DubstepGutter|BOOSTutorial Piano|Timer Topia|Jaw-Dropping Facts|el prana|猫あるあるソング - もしぬこ",
+ "AI生成の猫": "Cute Cat|Asu Daily AI|West Lake AI Animal|☆WhiteCat358☆|AI猫にゃんこちん Official|mini meownmeow|BlowMeow AI|joyfulmoments_247|Animal Vibe|Pastel Cat World|ArcadeGaming|Petflix Show ",
+ "ミーム猫の合成・編集": "The Cat Adventures|XoSen7|Lanboc|Real Happy|Frastiction|ほのぼの猫ミーム|Pusa|SherCAT H. Junior|Meow madness|FeliumMemes|Croma Eye|W&W|Tori|FREYU|HAPIKATO|メロ|またたび|Nostalgic Genius|Green Chick|Nizaritoo|TOPVEXY|CREEPY MEME|Bimomi|BGGT Maker|TheFrenchSpartan|Mafier|RawD3V|ミーム遣唐使|SAD CYBORG|TheRealSullyG|DubstepGutter|BOOSTutorial Piano|Timer Topia|Jaw-Dropping Facts|el prana|猫あるあるソング - もしぬこ",
 }
 GM = {ch: g for g, chs in G.items() for ch in chs.split("|")}
 for r in R: r["genre"] = GM.get(r["channel"], "アニメ・子ども向け・ゲーム")
@@ -82,8 +82,11 @@ def ocr(f):
     OCR[f] = len(re.findall(r"[A-Za-z]{3,}|[\u3040-\u30ff\u4e00-\u9fff]{2,}", txt))
     if len(OCR) % 50 == 0: json.dump(OCR, open("ocr_cache.json", "w")); print("ocr", len(OCR), flush=True)
     return OCR[f]
+_prev = {r["id"]: r for r in json.load(open("dataset_features.json"))} if os.path.exists("dataset_features.json") else {}
 for r, p in zip(R, paths):
-    if p: r.update(thumb_feats(p))
+    if r["id"] in _prev and "bright" in _prev[r["id"]]:
+        r.update({k: _prev[r["id"]][k] for k in ("bright", "sat", "contrast", "catface", "catface_area")})
+    elif p: r.update(thumb_feats(p))
 with cf.ThreadPoolExecutor(4) as ex:
     for r, n in zip(R, ex.map(lambda p: ocr(p) if p else 0, paths)): r["ocr_words"] = n
 json.dump(OCR, open("ocr_cache.json", "w"))
@@ -94,7 +97,7 @@ out = []
 P = lambda *a: out.append(" ".join(str(x) for x in a))
 V = [r["views"] for r in R]
 P("n =", len(R), "| channels =", len({r['channel'] for r in R}), "| views median =", f"{st.median(V):,.0f}", "| total =", f"{sum(V):,}")
-P("found by motion/AI-cat search queries:", sum(r["found_by_motion_query"] for r in R))
+P("検索で直接見つかった動画（ショートタブ上位60本と重なったもの）:", sum(r["found_by_motion_query"] for r in R))
 P("\n--- ジャンル（チャンネル単位で分類）: 本数 / 再生数中央値 / 登録者に対する倍率中央値 / 長さ中央値 ---")
 for g in list(G) + ["アニメ・子ども向け・ゲーム"]:
     sub = [r for r in R if r["genre"] == g]
@@ -143,5 +146,5 @@ M = [r for r in R if set(r["tags"]) & {"dance", "fight", "human_like"}]
 P("n", len(M), "median", f"{st.median(r['views'] for r in M):,.0f}", collections.Counter(r["genre"] for r in M).most_common())
 for r in M[:40]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['genre'][:6]} {r['channel'][:20]} | {r['title'][:70]}")
 P("\n--- AI 系トップ30 ---")
-for r in [r for r in R if r["genre"] == "AI生成のリアル猫"][:30]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['tags']} {r['channel'][:22]} | {r['title'][:70]}")
+for r in [r for r in R if r["genre"] == "AI生成の猫"][:30]: P(f"{r['views']:>12,} {str(r.get('duration')):>4}s {r['tags']} {r['channel'][:22]} | {r['title'][:70]}")
 open("report_stats.txt", "w").write("\n".join(out)); print("\n".join(out))

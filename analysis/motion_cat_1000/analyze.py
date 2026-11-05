@@ -50,7 +50,7 @@ def get(r):
     f = f"thumbs/{r['id']}.jpg"
     if not os.path.exists(f):
         for n in ("oar2.jpg", "hq2.jpg", "hqdefault.jpg"):
-            if subprocess.run(["curl", "-sSf", "-o", f, f"https://i.ytimg.com/vi/{r['id']}/{n}"], capture_output=True).returncode == 0: break
+            if subprocess.run(["curl", "-sSf", "-m", "30", "-o", f, f"https://i.ytimg.com/vi/{r['id']}/{n}"], capture_output=True).returncode == 0: break
     return f if os.path.exists(f) else None
 with cf.ThreadPoolExecutor(16) as ex: paths = list(ex.map(get, R))
 cat = cv2.CascadeClassifier("haarcascade_frontalcatface_extended.xml")
@@ -61,16 +61,26 @@ def thumb_feats(f):
     hsv = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
     faces = cat.detectMultiScale(g, 1.1, 3, minSize=(int(w * .08), int(w * .08)))
     fa = max((fw * fh for x, y, fw, fh in faces), default=0) / (w * h)
-    txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True).stdout
+    try:  # 一部の画像で tesseract が止まるため打ち切る
+        txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True, timeout=20,
+                             env={**os.environ, "OMP_THREAD_LIMIT": "1"}).stdout
+    except subprocess.TimeoutExpired:
+        txt = ""
+        print("ocr timeout", f, flush=True)
     words = [x for x in re.findall(r"[A-Za-z]{3,}|[぀-ヿ一-鿿]{2,}", txt)]
     return {"bright": float(g.mean()), "sat": float(hsv[..., 1].mean()), "contrast": float(g.std()),
             "catface": len(faces) > 0, "catface_area": fa}
 OCR = json.load(open("ocr_cache.json")) if os.path.exists("ocr_cache.json") else {}
 def ocr(f):
     if f in OCR: return OCR[f]
-    txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True).stdout
+    try:  # 一部の画像で tesseract が止まるため打ち切る
+        txt = subprocess.run(["tesseract", f, "-", "-l", "eng+jpn", "--psm", "11"], capture_output=True, text=True, timeout=20,
+                             env={**os.environ, "OMP_THREAD_LIMIT": "1"}).stdout
+    except subprocess.TimeoutExpired:
+        txt = ""
+        print("ocr timeout", f, flush=True)
     OCR[f] = len(re.findall(r"[A-Za-z]{3,}|[\u3040-\u30ff\u4e00-\u9fff]{2,}", txt))
-    if len(OCR) % 50 == 0: json.dump(OCR, open("ocr_cache.json", "w"))
+    if len(OCR) % 50 == 0: json.dump(OCR, open("ocr_cache.json", "w")); print("ocr", len(OCR), flush=True)
     return OCR[f]
 for r, p in zip(R, paths):
     if p: r.update(thumb_feats(p))

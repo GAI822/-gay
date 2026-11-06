@@ -1,0 +1,32 @@
+[
+{
+"out": "f1_open.png",
+"seed": 71,
+"prompt": "amateur smartphone photo, small Japanese apartment kitchen at night, a plain solid blue-grey cat and a plain solid cream-white cat sitting side by side on the floor in front of an open refrigerator, cold fridge light on their faces, both staring inside, photorealistic"
+},
+{
+"out": "f1_open_b.png",
+"seed": 72,
+"prompt": "amateur smartphone photo, small Japanese apartment kitchen at night, a plain solid blue-grey cat and a plain solid cream-white cat sitting side by side on the floor in front of an open refrigerator, cold fridge light on their faces, both staring inside, photorealistic"
+},
+{
+"out": "f2_closed.png",
+"seed": 73,
+"prompt": "amateur smartphone photo, small Japanese apartment kitchen at night, a plain solid blue-grey cat and a plain solid cream-white cat sitting side by side on the floor staring at a closed white refrigerator door, dim light, photorealistic"
+},
+{
+"out": "f2_closed_b.png",
+"seed": 74,
+"prompt": "amateur smartphone photo, small Japanese apartment kitchen at night, a plain solid blue-grey cat and a plain solid cream-white cat sitting side by side on the floor staring at a closed white refrigerator door, dim light, photorealistic"
+},
+{
+"out": "f3_reveal.png",
+"seed": 75,
+"prompt": "amateur smartphone photo, a black cat sitting inside an open refrigerator on the middle shelf between milk and eggs, calmly looking at the camera, cold fridge light, photorealistic"
+},
+{
+"out": "f3_reveal_b.png",
+"seed": 76,
+"prompt": "amateur smartphone photo, a black cat sitting inside an open refrigerator on the middle shelf between milk and eggs, calmly looking at the camera, cold fridge light, photorealistic"
+}
+]

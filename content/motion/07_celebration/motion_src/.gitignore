@@ -1,3 +1,5 @@
 # 中継映像の切り抜き（第三者の映像）はリポジトリに入れない
 driving.mp4
 driving_full.mp4
+driving_full_isolated.mp4
+*.pt

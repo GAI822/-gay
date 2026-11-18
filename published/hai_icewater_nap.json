@@ -2,12 +2,31 @@
   "id": "hai_icewater_nap",
   "file": "content/motion/08_icewater/ハイの日常_昼寝中に氷水.mp4",
   "duration_s": 7.9,
-  "title": {"ja": "ハイの日常　昼寝中に氷水", "en": "Hai's Daily Life: Ice Water During a Nap"},
+  "title": {
+    "ja": "ハイの日常　昼寝中に氷水",
+    "en": "Hai's Daily Life: Ice Water During a Nap"
+  },
   "text": "Hai's Daily Life: Ice Water During a Nap 🧊🐱\n\nAI-generated video.\n\n#shorts #cat #catvideo #aicat #funnycat",
   "via": "Metricool (blog 7514409)",
   "scheduled": "2026-11-18T18:35:00+09:00",
   "metricool_post_id": 432571672,
-  "networks": {"youtube": {"type": "short", "privacy": "public", "madeForKids": false, "isAiGeneratedContent": true, "category": "PETS_ANIMALS"},
-               "instagram": {"type": "REEL", "account": "nantianwoyi", "isAiGenerated": true}},
-  "ai_generated": true
+  "networks": {
+    "youtube": {
+      "type": "short",
+      "privacy": "public",
+      "madeForKids": false,
+      "isAiGeneratedContent": true,
+      "category": "PETS_ANIMALS"
+    },
+    "instagram": {
+      "type": "REEL",
+      "account": "nantianwoyi",
+      "isAiGenerated": true
+    }
+  },
+  "ai_generated": true,
+  "published": {
+    "youtube": "https://www.youtube.com/shorts/w4DHvDO-XfU",
+    "instagram": "https://www.instagram.com/reel/Df4Mllxjv0U/"
+  }
 }

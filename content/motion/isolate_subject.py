@@ -2,7 +2,8 @@
 
 動きを移す処理（Genjutsu）は、動きの元に映っている他の人物まで出してしまうため、主役以外を消してから渡す。
 人物の検出と切り抜きは YOLOv8 seg（人物クラスのみ）。各コマで、大きく映っていて前のコマの主役に近い人物を主役とする。
-使い方: python3 isolate_subject.py in.mp4 out.mp4
+使い方: python3 isolate_subject.py in.mp4 out.mp4 [残す人数=1]
+  2人以上残すときは、各コマで大きく映っている順に指定人数を残す（追跡はしない）。
 """
 import subprocess
 import sys
@@ -16,6 +17,7 @@ BG = np.array((128, 128, 128), np.float32)  # 無地のグレー
 
 def main():
     src, dst = sys.argv[1], sys.argv[2]
+    keep_n = int(sys.argv[3]) if len(sys.argv) > 3 else 1
     model = YOLO("yolov8s-seg.pt")
     cap = cv2.VideoCapture(src)
     fps = cap.get(cv2.CAP_PROP_FPS)
@@ -32,11 +34,15 @@ def main():
             boxes = r.boxes.xyxy.cpu().numpy()
             area = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
             cent = np.stack([(boxes[:, 0] + boxes[:, 2]) / 2, (boxes[:, 1] + boxes[:, 3]) / 2], 1)
-            score = area if prev is None else area / (1 + np.hypot(*(cent - prev).T) / 80)
-            i = int(np.argmax(score))
-            prev = cent[i]
-            mask = r.masks.data[i].cpu().numpy()
-            mask = cv2.resize(mask, (w, h)) > 0.5
+            if keep_n > 1:
+                idx = np.argsort(-area)[:keep_n]
+            else:
+                score = area if prev is None else area / (1 + np.hypot(*(cent - prev).T) / 80)
+                idx = [int(np.argmax(score))]
+                prev = cent[idx[0]]
+            mask = np.zeros((h, w), bool)
+            for i in idx:
+                mask |= cv2.resize(r.masks.data[i].cpu().numpy(), (w, h)) > 0.5
         if mask is None:
             mask = prev_mask if prev_mask is not None else np.zeros((h, w), bool)
         prev_mask = mask

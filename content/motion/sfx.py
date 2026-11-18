@@ -2,7 +2,8 @@
 
 使い方: python3 sfx.py in.mp4 out.mp4 "0.4:toss" "1.3:land" "2.0:steps" "3.0:cheer" "5.8:clatter"
 音の種類: toss（投げる風切り音） / land（布が落ちる音） / steps（小走りの足音） / jump（踏み切り） /
-          thud（着地） / cheer（歓声のような盛り上がり） / clatter（プラスチックが倒れる音） / pop（ポン）
+          thud（着地） / cheer（歓声のような盛り上がり） / clatter（プラスチックが倒れる音） / pop（ポン） /
+          splash（水をぶちまける音） / beat（煽りダンス用の2秒のリズム）
 """
 import subprocess
 import sys
@@ -60,6 +61,20 @@ def sound(kind):
         n = int(0.15 * SR)
         t = np.arange(n) / SR
         x = np.sin(2 * np.pi * (700 - 2500 * t) * t) * env(n, 0.001, 0.03)
+    elif kind == "splash":
+        n = int(0.9 * SR)
+        x = (lowpass(rng.standard_normal(n), 4) * 0.7 + lowpass(rng.standard_normal(n), 25)) * env(n, 0.01, 0.25) * 0.9
+    elif kind == "beat":
+        n = int(2.0 * SR)
+        x = np.zeros(n)
+        t = np.arange(int(0.18 * SR)) / SR
+        kick = np.sin(2 * np.pi * (120 - 300 * t) * t) * env(len(t), 0.001, 0.05)
+        hat = lowpass(rng.standard_normal(int(0.04 * SR)), 2) * env(int(0.04 * SR), 0.001, 0.01) * 0.3
+        for i in range(8):
+            k = int(i * 0.25 * SR)
+            x[k:k + len(kick)] += kick if i % 2 == 0 else 0
+            h = k + int(0.125 * SR)
+            x[h:h + len(hat)] += hat
     else:
         sys.exit(f"unknown sound: {kind}")
     return x

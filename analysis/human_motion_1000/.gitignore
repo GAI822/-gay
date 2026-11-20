@@ -1,0 +1,5 @@
+tabs/
+thumbs/
+*.log
+discover.json
+channels.json

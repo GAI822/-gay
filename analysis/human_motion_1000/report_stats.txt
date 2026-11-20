@@ -1,0 +1,181 @@
+n = 4764 | channels = 603 | views median = 3,600,000
+
+--- 動きの型（タイトルのキーワード）: 本数 / 再生数中央値 / ハイで再現 ---
+dance_trend    479 (10%)  median    3,000,000  ○
+fail            41 (1%)  median    3,100,000  ○
+prank           79 (2%)  median    3,100,000  ×
+reaction        42 (1%)  median    1,800,000  ○
+trick_skill    121 (3%)  median    4,600,000  ○
+skit_pov       310 (7%)  median    3,200,000  ○
+lip_sync        86 (2%)  median    3,300,000  ○
+sport           94 (2%)  median    4,350,000  ○
+family_kids    365 (8%)  median    3,500,000  ×
+型なし 3325
+
+--- dance_trend 上位 ---
+ 283,000,000 Nick Pro               | Emoji shape challenge + parkour  😱🔥 (PART 4)
+ 193,000,000 Nick Pro               | Emoji shape challenge + parkour 😱🔥 BEST OF
+ 161,000,000 Jordan Matter          | BEST FRIEND TELEPATHY CHALLENGE #shorts
+ 145,000,000 Lady Gaga              | The category is DEAD DANCE 💀 #deaddance
+ 125,000,000 Taylor Swift           | Share your “fortnight” recap with #ForAFortnightChallenge 🤍 brought to you by Yo
+ 112,000,000 Like Nastya            | Nastya and Evelyn - new Challenge
+ 111,000,000 Ready Set Dance        | Which Kid Crew member did it best? | Twinkle Little Star | Ready Set Dance
+  95,000,000 Lady Gaga              | DO THE DEAD DANCE! #deaddance brought to you by YouTube Shorts.
+  86,000,000 KAYCEE & RACHEL in WON | BARBIE MODELING | KAYCEE & RACHEL in WONDERLAND FAMILY #Barbie #BarbieChallenge 
+  81,000,000 That Little Puff       | New hack with this trendy song! 🎵 #thatlittlepuff
+  79,000,000 Taylor Swift           | Total surprise 😉 Share yours with  #TSAntiHeroChallenge brought to you by YouTub
+  77,000,000 tuzelity SHUFFLE       | Шаффл Баттл 😎🔥 Who Best ? 🤔🏆 NEON MODE BATTLE 😨 TUZELITY SHUFFLE ⭐️
+
+--- fail 上位 ---
+  40,000,000 UG Toons               | Bouncy Fall 😂😀
+  29,000,000 The Tonight Show Starr | #LISA’s backup jobs were to be a dance teacher or a #Disneyland performer 👀 #LIS
+  28,000,000 That'll Work           | Tasks Failed Successfully: Top 10
+  25,000,000 That'll Work           | Tasks Failed Successfully: Top 20 (11-20)
+  20,000,000 Mark Rober             | How To Keep a Skyscraper From Falling Over
+  19,000,000 Infinite               | Can you GUESS THE COLOR? (99.8% Fail)
+  18,000,000 だいじろー Daijiro          | 世界の運転免許証が衝撃すぎる【５選】
+  10,000,000 けえ【島育ち】                | The pitfalls of a country bumpkin #shorts
+  10,000,000 America's Funniest Hom | This is why you listen to Mom #AFV #fail
+   9,300,000 The Rockettes          | Happy First Day of Fall!
+   9,200,000 World Best Talent      | Mini Version Heidi & Seal Fall in LOVE #shorts
+   5,900,000 PrestonReacts          | 99.9% WILL FAIL THIS.. (Is It Cake???) 🤔
+
+--- prank 上位 ---
+ 175,000,000 Stokes Twins           | Walking On Water Prank!
+ 100,000,000 The Prince Family Club | MIDNIGHT SNACK PRANK #shorts #roblox
+  79,000,000 Taylor Swift           | Total surprise 😉 Share yours with  #TSAntiHeroChallenge brought to you by YouTub
+  78,000,000 ANATOLY                | ELITE Powerlifter ANATOLY Use FAKE WEIGHTS in GYM PRANK #anatoly #fitness #gym
+  67,000,000 ANATOLY                | ANATOLY Use FAKE WEIGHTS in GYM PRANK #anatoly #fitness #gym
+  49,000,000 Haminations            | This PRANK Backfired…
+  48,000,000 The Prince Family Club | KIDS TURN OFF TV on PARENTS PRANK #shorts #roblox
+  33,000,000 WigoFellas             | Prank on GIRLFRIEND went TOO FAR 😂 #shorts
+  26,000,000 RJ Naved               | Lift Prank | RJ Naved
+  22,000,000 The Prince Family Club | KYRIE pranks DJ with FAKE ALARM CLOCK #shorts #roblox
+  17,000,000 Clair Hawkins          | That kid that scares you a little #gymnastics #coaching #clairbearskits
+  16,000,000 RJ Naved               | Lift Prank | RJ Naved
+
+--- reaction 上位 ---
+  15,000,000 マヨネーズ.exe【Nekotaro】    | I made this on a whim and it got a huge reaction on X [Reposted by the original 
+  13,000,000 EYreacts               | Which Minecraft Miner Are YOU?😂 #reaction
+   8,400,000 EYreacts               | Minecraft New vs Old Textures!😱 #reaction
+   8,200,000 EYreacts               | The Baby Cloned Itself!😱 #reaction
+   6,900,000 EYreacts               | What Shape Can a Nether Portal Be🤔 #reaction
+   5,800,000 EYreacts               | This One Mistake Wasted 67 Years😭 #reaction
+   5,400,000 EYreacts               | This ILLUSION Does Not Make Sense😱 #reaction
+   5,000,000 なで肩のモD／Modi's piano    | ピアノの弦が切れた瞬間のピアニストの反応がwww
+   3,700,000 EYreacts               | How Does This ILLUSION Make Sense!😱 #reaction
+   3,600,000 FazFriends             | Every Character's UNIQUE Reaction To Failing The Mission
+   3,400,000 YouTube Japan 公式チャンネル  | #PR ブルーシーの元へ、箱が到着！しらすさんの反応は…？✨ 6/13 は YouTube で #MAJ2026 を観よう🏆️ @bluesea0704 #MA
+   3,100,000 ティアロ疾風伝                | [Tragic] The class reaction when a truant student returns is too real... #shorts
+
+--- trick_skill 上位 ---
+5,200,000,000 Colin Amazing          | BEST Duo Trick Shots
+ 802,000,000 Colin Amazing          | 10 Coolest Ways to Flip a Bottle!
+ 283,000,000 Nick Pro               | Emoji shape challenge + parkour  😱🔥 (PART 4)
+ 281,000,000 Nick Pro               | Parkour Tic Tac Toe + Puppy 🐶
+ 240,000,000 Nick Pro               | Parkour with emojis! Drop edition 😂🔥
+ 204,000,000 UPGIRL                 | ⁠@Dumitru Comanac ESCAPING ANGRY MOM #parkour #escaping #mom #funny #pov #comedy
+ 193,000,000 Nick Pro               | Emoji shape challenge + parkour 😱🔥 BEST OF
+ 193,000,000 Colin Amazing          | First to Score 7 Trick Shots Wins!
+ 178,000,000 Nick Pro               | Parkour in emoji box! 😱😅 vs @Matt Larose
+ 168,000,000 Nick Pro               | Lowest backflip wins! Vs @Brandon A
+ 149,000,000 Nick Pro               | Parkour with play buttons! ▶️ Help me get to 100M?!
+ 117,000,000 Colin Amazing          | BOTTLE FLIPS From Level 1 to 10!
+
+--- skit_pov 上位 ---
+ 204,000,000 UPGIRL                 | ⁠@Dumitru Comanac ESCAPING ANGRY MOM #parkour #escaping #mom #funny #pov #comedy
+  72,000,000 Rebecca Zamolo         | When You Forget Something
+  66,000,000 The Prince Family      | When You’re Forced To Share #shorts
+  66,000,000 The Prince Family      | When You're Forced To Share #shorts
+  63,000,000 The Prince Family      | When Your Forced To Share #shorts
+  56,000,000 The Prince Family      | When Your Forced To Share #shorts
+  53,000,000 Brianna Mizura         | POV: the rich mom gives her girls whatever they want…#pov #shortsfeed #songs
+  53,000,000 The Prince Family      | When You're Forced To Share #shorts
+  27,000,000 The Prince Family      | When You're Forced To Rub Feet #shorts
+  26,000,000 Brianna Guidryy        | #pov When your mom has a favourite.. #funny #relatable #shortsfeed
+  26,000,000 Avocado Animations     | Mr Beast Challenges Be Like
+  26,000,000 Dhar Mann Studios      | POV: You have 50 minions as your wingmen 😅🍌#Minions #MinionsPartner #MinionsandM
+
+--- lip_sync 上位 ---
+  87,000,000 TD BRICKS              | SATISFYING Sounds Using LEGO...
+  86,000,000 The Royalty Family     | SING or SWIM! 😂💦 #shorts
+  59,000,000 Rebecca Zamolo         | When 2 Year Old Sings Better Than You
+  42,000,000 Man + River            | These Photos Went Missing In 2011. I Found Them.
+  27,000,000 Mark Rober             | Secret To Defusing A Soda Grenade
+  27,000,000 Gracie's Corner        | The Real Gracie Sings Phonics Song with @CherylPorterVocalCoach #shorts
+  27,000,000 Dude Perfect           | He Stopped Embarrassing Himself 😳
+  26,000,000 Rebecca Zamolo         | Guess The Singer
+  22,000,000 Super Simple ABCs      | ⁠Caitie from @SuperSimplePlay is singing her ABC-quacks! Sing along! #funlearnin
+  20,000,000 Stokes Twins           | Surprising My Dad With His DREAM CAR..
+  17,000,000 Olivia Rodrigo         | im the biggest no doubt fangirl ❤️was such an honor to sing with them @Coachella
+  13,000,000 GMA Singers            | Jillian Ward sings 'California Girls' on AOS! #shorts
+
+--- sport 上位 ---
+  43,000,000 Mark Rober             | Ronaldo vs My Goalie Robot
+  38,000,000 JDBFOOTBALL            | IM TOO GOOD AT DEFENDING💪🏻 #povfootball #football #soccer #povsoccer #defender #
+  32,000,000 Legendary Shots        | What pops a soccer ball? 🤔⚽️
+  31,000,000 TerminalMontage        | Celebi with 20 Green Dragonballs in Pokemon TCG Pocket @TerminalMontage
+  31,000,000 Nick DiGiovanni        | I Ate EVERY Football Player Food
+  28,000,000 JDBFOOTBALL            | THE ART OF TAP INS😮‍💨 #povfootball #football #soccer #funnyshorts #funnyfootball
+  28,000,000 Jesser                 | 1 Second vs 1 Hour Basketball
+  27,000,000 The Prince Family      | #1 Youth Football Player In The Country #shorts
+  24,000,000 Ninety                 | Most Humiliating Penalty Goals
+  24,000,000 Marcin                 | When your concert is at an NBA game…
+  23,000,000 JDBFOOTBALL            | HE GOT TRIGGERED😭 #football #povfootball #soccer #funnyshorts #povsoccer #funnyf
+  22,000,000 Ninety                 | Impossible Penalty Saves In Football
+
+--- family_kids 上位 ---
+ 204,000,000 UPGIRL                 | ⁠@Dumitru Comanac ESCAPING ANGRY MOM #parkour #escaping #mom #funny #pov #comedy
+ 173,000,000 Luli Pampín            | ❌Cuidado! ✂️✨ Aprendemos a usar tijeras de forma segura 🙌🏻💪🏻 #cuidadoinfantil #a
+ 123,000,000 The Royalty Family     | Guess my Mom's Age! #shorts
+ 116,000,000 Funny Lala - Kindergar | Please, Baby Don't Cry 😿 | Lalafun Nursery Rhymes & Kids Songs
+ 111,000,000 Ready Set Dance        | Which Kid Crew member did it best? | Twinkle Little Star | Ready Set Dance
+  99,000,000 Luli Pampín            | ⚠️Cuidado🪜✨Aprendemos a bajar las escaleras de forma segura 🙌🏻💪🏻 #escaleras #cui
+  98,000,000 The Royalty Family     | Guess my Dad's Age Win $100! #shorts
+  87,000,000 Funny Lala - Kindergar | Playground Fun 🎶🎠 | Funny Nursery Rhymes & Kids Songs
+  86,000,000 KAYCEE & RACHEL in WON | BARBIE MODELING | KAYCEE & RACHEL in WONDERLAND FAMILY #Barbie #BarbieChallenge 
+  81,000,000 Luli Pampín            | ⚠️ #cuidado 🍲Los niños pequeños "NO" tocan las ollas ni las sartenes #cuidadoinf
+  72,000,000 Foltyn                 | EXTREME AURA MOMENT In Steal A Brainrot..
+  72,000,000 Colin Amazing          | Day in the Life of Trick Shot Kid
+
+--- 型なし 上位40 ---
+ 601,000,000 Colin Amazing          | BASEBALL with Emojis!
+ 582,000,000 Jordan Matter          | BUSTED BY SECURITY For Taking A Photo? #shorts
+ 497,000,000 Taylor Swift           | Never been accused of not keeping it 💯
+ 495,000,000 Colin Amazing          | Baseball With Emojis! ⚾️
+ 404,000,000 Taylor Swift           | Pledge allegiance to your 👐 your 🏈 your viiiiiiiibes
+ 376,000,000 That Little Puff       | No way! Chips new hacks! #thatlittlepuff
+ 368,000,000 Mark Rober             | 3 Levels of Elephant Toothpaste
+ 323,000,000 Anwar Jibawi           | Some people should just watch the game ⚽️😂 #ad #fifaworldcup | Anwar Jibawi
+ 318,000,000 That Little Puff       | Magical Box! #thatlittlepuff
+ 313,000,000 YBS Youngbloods        | Crazy But Amazing Experience..
+ 306,000,000 YBS Youngbloods        | Transparent Kayak Hits Different In Deep Water..
+ 275,000,000 Colin Amazing          | 10 BEST Ways to Jump Into a Pool!
+ 247,000,000 YBS Youngbloods        | Sea Turtle Stuck On Remote Beach..
+ 241,000,000 YBS Youngbloods        | Don’t Often Get To See Them Swim This Close..
+ 238,000,000 Mark Rober             | pride comes before flop
+ 234,000,000 That Little Puff       | some fun time with our new friend! #thatlittlepuff
+ 221,000,000 Luli Pampín            | ¿CÓMO HACEN LOS ANIMALES? 🐥🐽🐮🫏🦉Adivinanzas con Luli Pampin y el Pampin Team #sho
+ 200,000,000 The Prince Family Club | DO NOT CROSS THE STREET! #shorts #roblox
+ 197,000,000 Horror Skunx           | Choo choo?
+ 196,000,000 Colin Amazing          | Water Balloon VS Emojis!
+ 193,000,000 Jordan Matter          | PAYING $100 TO GUESS MY DAUGHTER’S AGE #shorts
+ 192,000,000 Zach King              | Banksy Identity Revealed
+ 187,000,000 That Little Puff       | Egg makeover! #thatlittlepuff
+ 183,000,000 tuzelity SHUFFLE       | Шаффл Баттл 😎🔥 Boys 👦 VS Girls 👧 NEON BATTLE TUZELITY 😨🔥
+ 183,000,000 Colin Amazing          | Par every hole
+ 179,000,000 Ninety                 | Strange Ways to Block Penalty
+ 174,000,000 Colin Amazing          | If slow pitch golf were a sport…
+ 168,000,000 Nick Pro               | That last one 🤕
+ 165,000,000 YBS Youngbloods        | Sea Turtle Stuck On Remote Mud Flats..
+ 165,000,000 Aquarium Info          | Let me do it for You 🥺
+ 164,000,000 Nick Pro               | When the floor is ACTUALLY lava 🔥🤯
+ 163,000,000 Jordan Matter          | 1st Person To Guess Age Wins $100! ft/ Anna McNulty #Shorts
+ 163,000,000 𝐊𝐫𝐢𝐬𝐡𝐧𝐚𝐀𝐯𝐲𝐮 𝐄𝐧𝐭𝐞𝐫𝐭𝐚𝐢𝐧𝐦 | Tom&jerry 🥰Real End Twist #shorts #shortvideo
+ 158,000,000 The Royalty Family     | Epic Gender Reveal #shorts
+ 147,000,000 Nick Pro               | Handstand over emojis 😱 ft @Brandon A
+ 146,000,000 Max the Meat Guy       | YouTubers Season My Steak…
+ 144,000,000 Horror Skunx           | ONE MORE SUBSCRIBER FOR 4 MILLION!
+ 143,000,000 ANATOLY                | ELITE Powerlifter ANATOLY Pretends to be CLEANER in GYM #anatoly #fitness #gym
+ 139,000,000 Jordan Matter          | 1st Person To Guess Name Wins $100 #shorts
+ 139,000,000 Nick DiGiovanni        | 1 Second vs 1 Hour Chicken

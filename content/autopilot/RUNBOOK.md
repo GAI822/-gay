@@ -66,7 +66,7 @@
    - `text`: `Hai's Daily Life: <英語タイトル> <絵文字1つ>\n\n<日本語タイトル>\nAI-generated video.\n\n#shorts #cat #catvideo #aicat #funnycat`
    - `youtubeData`: title `Hai's Daily Life: <英語タイトル> #shorts`、type `short`、privacy `public`、category `PETS_ANIMALS`、madeForKids `false`、**isAiGeneratedContent `true`**
    - `instagramData`: type `REEL`、showReelOnFeed `true`、**isAiGenerated `true`**
-3. もう18:00を過ぎていたら、その日の 20:00 と 21:00 にずらす。
+3. もう18:00を過ぎていたら、その日の 20:00 と 21:00 にずらす。それも過ぎていたら、今から1時間以内の次の正時と30分後にする。
 
 ## 5. 記録と報告
 

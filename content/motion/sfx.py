@@ -3,7 +3,7 @@
 使い方: python3 sfx.py in.mp4 out.mp4 "0.4:toss" "1.3:land" "2.0:steps" "3.0:cheer" "5.8:clatter"
 音の種類: toss（投げる風切り音） / land（布が落ちる音） / steps（小走りの足音） / jump（踏み切り） /
           thud（着地） / cheer（歓声のような盛り上がり） / clatter（プラスチックが倒れる音） / pop（ポン） /
-          splash（水をぶちまける音） / beat（煽りダンス用の2秒のリズム） / alarm（目覚まし時計のピピピ）
+          splash（水をぶちまける音） / beat（煽りダンス用の2秒のリズム） / alarm（目覚まし時計のピピピ） / beep（レジのピッ）
 """
 import subprocess
 import sys
@@ -72,6 +72,10 @@ def sound(kind):
             m = int(0.09 * SR)
             t = np.arange(m) / SR
             x[k:k + m] += np.sin(2 * np.pi * 2000 * t) * 0.35
+    elif kind == "beep":
+        n = int(0.14 * SR)
+        t = np.arange(n) / SR
+        x = np.sin(2 * np.pi * 2600 * t) * np.minimum(1, (n - np.arange(n)) / (0.01 * SR)) * 0.4
     elif kind == "beat":
         n = int(2.0 * SR)
         x = np.zeros(n)

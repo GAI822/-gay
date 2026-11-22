@@ -23,5 +23,9 @@
       "isAiGenerated": true
     }
   },
-  "ai_generated": true
+  "ai_generated": true,
+  "published": {
+    "youtube": "https://www.youtube.com/shorts/v5jVdbO1vJw",
+    "instagram": "https://www.instagram.com/reel/DgCen4sGfWf/"
+  }
 }

@@ -1,0 +1,27 @@
+{
+  "id": "hai_bottleflip_lv100",
+  "file": "content/motion/09_trends/bottleflip/ハイの日常_ボトルフリップLv100.mp4",
+  "title": {
+    "ja": "ハイの日常　ボトルフリップ Lv.100",
+    "en": "Hai's Daily Life: Bottle Flip Level 100"
+  },
+  "text": "Hai's Daily Life: Bottle Flip Level 100 🍾\n\nボトルフリップ Lv.100\nAI-generated video.\n\n#shorts #cat #catvideo #aicat #funnycat #bottleflip",
+  "via": "Metricool (blog 7514409)",
+  "scheduled": "2026-11-22T18:25:00+09:00",
+  "metricool_post_id": 437388662,
+  "draft": false,
+  "networks": {
+    "youtube": {
+      "type": "short",
+      "privacy": "public",
+      "madeForKids": false,
+      "isAiGeneratedContent": true,
+      "category": "PETS_ANIMALS"
+    },
+    "instagram": {
+      "type": "REEL",
+      "isAiGenerated": true
+    }
+  },
+  "ai_generated": true
+}

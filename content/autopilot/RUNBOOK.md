@@ -45,14 +45,17 @@
 3. **動画**: `generate_video`、model `kling3_0`、mode `std`、sound `off`、duration `7`、aspect_ratio `9:16`、
    medias に `start_image` として手順1の画像の job_id。
    プロンプトは英語で、`Fixed phone camera, no camera movement.` から始め、企画の「動き」と「オチ」を時間順に書き、
+   **最後に企画の「オチの動き」を `PUNCHLINES.md` の英文で入れる**（`Then, as the punchline, <英文> and holds the final pose for one second, staring at the camera.`）。
+   最初の動きは0秒から始める（静かに座っている時間を作らない）。
    `Hai's face stays completely expressionless and deadpan the whole time. Hai keeps the same plain blue-grey fur color in every frame.`
    `Realistic real cats with natural fur, no clothes, no text, no talking.` で終える。
    **提出前に `get_cost: true` で見積もり、12を超えたら設定を見直す。**
 4. **動画の確認**: ダウンロードし、`fps=4` のコマ一覧を作って目で見る。次のどれかなら1回だけ作り直す（2回目もダメならその企画は飛ばして次へ）:
    - ハイの毛色が紺・黒に変わる（軽い青みなら `python3 content/motion/fix_blue.py in.mp4 out.mp4 0.2 1.7` で直してよい）
-   - 人間や文字が出る、猫の体が崩れる、オチが起きない
+   - 人間や文字が出る、猫の体が崩れる、オチが起きない、**オチの動き（ポーズ）が分からない**
 5. **仕上げ**: 冒頭の止まっている秒数を見て、
-   `bash content/autopilot/finish.sh take.mp4 final.mp4 <切る秒数> "<秒>:<効果音>" ...`
+   `TEASER="<オチの動きの一番いい瞬間（切った後の秒数）>:0.9" bash content/autopilot/finish.sh take.mp4 final.mp4 <切る秒数> "<秒>:<効果音>" ...`
+   **TEASER は必ず付ける。** オチの動きの決めの瞬間が冒頭0.9秒に先出しされ、巻き戻し音のあと本編が始まる。
    効果音は動きに合わせて3〜6個（種類は finish.sh の説明を参照）。字幕は入れない。
 6. 保存先: `content/autopilot/<YYYYMMDD>_<番号>/`（`start.png`、`take.mp4`、`final.mp4`、`meta.json`）。
 

@@ -2,7 +2,8 @@
 
 持ち主の決定（2026-11-20）:
 - **毎日2本**。Metricool の予約時刻は **18:00 と 19:00（日本時間）**。
-- **公開前に持ち主が確認する**。Metricool には `draft: true`（下書き）で入れ、公開ボタンは持ち主が押す。**自分で公開しない。**
+- ~~公開前に持ち主が確認する~~ → **2026-11-24 に持ち主の指示で自動公開に変更。** Metricool には `draft: false`、`autoPublish: true` で予約する。
+  そのぶん、品質の確認（手順3-4）で少しでも決まりに外れたら予約しない。
 - Higgsfield のクレジットは **月800まで**（月額の付与日＝毎月11日ごろから数える）。
 
 ## 0. 準備
@@ -64,7 +65,7 @@
 1. `final.mp4` を Higgsfield の `media_upload` → curl PUT → `media_confirm` で上げ、返ってきた公開URLを使う。
 2. `createScheduledPost`、blogId `7514409`、日時は今日の 18:00（1本目）と 19:00（2本目）、timezone `Asia/Tokyo`。
    info:
-   - `"draft": true`、`"autoPublish": true`（持ち主が下書きを確定したら自動で出るように）
+   - `"draft": false`、`"autoPublish": true`（予約時刻に自動で公開される）
    - `providers`: youtube と instagram
    - `text`: `Hai's Daily Life: <英語タイトル> <絵文字1つ>\n\n<日本語タイトル>\nAI-generated video.\n\n#shorts #cat #catvideo #aicat #funnycat`
    - `youtubeData`: title `Hai's Daily Life: <英語タイトル> #shorts`、type `short`、privacy `public`、category `PETS_ANIMALS`、madeForKids `false`、**isAiGeneratedContent `true`**
@@ -81,7 +82,7 @@
 
 ## してはいけないこと
 
-- 下書きを自分で公開・予約確定しない。
+- 決まりに外れた動画（人・文字が写る、毛色が変わる、オチの動きが起きない、動物が痛い目にあう）は予約しない。
 - 他人の動画・実在の人物・ブランドを使わない。
 - 動物が痛い・冷たい・怖い目にあうネタを作らない。
 - 1日の作り直しは各企画1回まで。予算を超えそうなら止めて報告する。

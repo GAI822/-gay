@@ -22,7 +22,7 @@ if [ -n "$TEASER" ]; then
   for e in "$@"; do
     at="${e%%:*}"; k="${e#*:}"
     EV+=("$(python3 -c "print(round($at+$OFF,3))"):$k")
-    python3 -c "import sys;a=$at;sys.exit(0 if $T-0.05<=a<$T+$D else 1)" && EV+=("$(python3 -c "print(round($at-$T,3))"):$k")
+    python3 -c "import sys;a=$at;sys.exit(0 if $T-0.05<=a<$T+$D else 1)" && EV+=("$(python3 -c "print(max(0,round($at-$T,3)))"):$k")
   done
   EV+=("$(python3 -c "print(round($D-0.2,3))"):rewind")
   python3 "$HERE/../motion/sfx.py" "$TMP2" "$OUT" "${EV[@]}"

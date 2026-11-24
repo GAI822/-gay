@@ -23,9 +23,13 @@
 1. `content/autopilot/ideas.md` の `- [ ]` のうち、上から2つを使う。
 2. 残りが10本を切っていたら、同じ決まりで10本書き足す。
 
-## 3. 1本の作り方（1本 約10.5クレジット。作り直しは1回まで）
+## 3. 1本の作り方（2026-11-24 から：前半は Kling、オチは人の動きをハイに移す。1本 約17クレジット）
 
-**参照画像（Higgsfield の ID。そのまま medias に入れられる）**
+持ち主の方針: ハイ独自の動きは人間くささが出ないので、**オチは実際の人の動きをハイに被せる**。
+動きの見本は `drivers/drivers.json`（Mixkit の無料素材。Mixkit License で商用・加工可。元の動画は git に入れない）。
+各見本は Higgsfield にアップ済みで `media_id` がある。足りない見本は `drivers/prep_driver.py` で作ってアップし、drivers.json に足す。
+
+**参照画像（Higgsfield の ID）**
 
 | 用途 | ID |
 |---|---|
@@ -36,31 +40,29 @@
 
 **手順**
 
-1. **開始画像**: `generate_image`、model `gpt_image_2_5`、quality `medium`、resolution `2k`、aspect_ratio `9:16`。
-   上の参照画像を2つまで入れる。プロンプトは英語で、次を必ず含める:
+1. **開始画像**（1クレジット）: `generate_image`、model `gpt_image_2_5`、quality `medium`、resolution `2k`、aspect_ratio `9:16`。
+   参照画像を2つまで入れる。プロンプトは英語で、次を必ず含める:
    `the exact same plain solid blue-grey short-haired cat with yellow eyes from the reference images (Hai)`、
-   猫は `no clothes, no collar, natural fur, one tail each, anatomically correct real cats`、
-   `amateur smartphone video frame, fixed phone camera`、`photorealistic, not cartoon, no people, no text, no watermark`。
-   場面に必要な猫（クロ＝plain black cat、ミルク＝plain solid cream-white cat）と小道具を書く。
-2. **画像の確認**: ダウンロードして目で見る。ハイがグレー単色で1匹、しっぽ1本、人間が写っていない、文字がない。ダメなら1回だけ作り直す。
-3. **動画**: `generate_video`、model `kling3_0`、mode `std`、sound `off`、duration `7`、aspect_ratio `9:16`、
-   medias に `start_image` として手順1の画像の job_id。
-   プロンプトは英語で、`Fixed phone camera, no camera movement.` から始め、企画の「動き」と「オチ」を時間順に書き、
-   **最後に企画の「オチの動き」を `PUNCHLINES.md` の英文で入れる**（`Then, as the punchline, <英文> and holds the final pose for one second, staring at the camera.`）。
-   最初の動きは0秒から始める（静かに座っている時間を作らない）。
-   `Hai's face stays completely expressionless and deadpan the whole time. Hai keeps the same plain blue-grey fur color in every frame.`
-   `Realistic real cats with natural fur, no clothes, no text, no talking.` で終える。
-   **提出前に `get_cost: true` で見積もり、12を超えたら設定を見直す。**
-4. **動画の確認**: ダウンロードし、`fps=4` のコマ一覧を作って目で見る。次のどれかなら1回だけ作り直す（2回目もダメならその企画は飛ばして次へ）:
-   - ハイの毛色が紺・黒に変わる（軽い青みなら `python3 content/motion/fix_blue.py in.mp4 out.mp4 0.2 1.7` で直してよい）
-   - 人間や文字が出る、猫の体が崩れる、オチが起きない、**オチの動き（ポーズ）が分からない**
-5. **仕上げ**: 冒頭の止まっている秒数を見て、
-   `TEASER="<オチの動きの一番いい瞬間（切った後の秒数）>:0.9" bash content/autopilot/finish.sh take.mp4 final.mp4 <切る秒数> "<秒>:<効果音>" ...`
-   **TEASER は必ず付ける。** オチの動きの決めの瞬間が冒頭0.9秒に先出しされ、巻き戻し音のあと本編が始まる。
-   効果音は動きに合わせて3〜6個（種類は finish.sh の説明を参照）。字幕は入れない。
-6. 保存先: `content/autopilot/<YYYYMMDD>_<番号>/`（`start.png`、`take.mp4`、`final.mp4`、`meta.json`）。
+   `no clothes, no collar, natural fur, one tail each, anatomically correct real cats`、`amateur smartphone video frame, fixed phone camera`、
+   `photorealistic, not cartoon, no people, no text, no watermark`。クロ＝plain black cat、ミルク＝plain solid cream-white cat。
+2. **前半の動画**（約7.5クレジット）: `generate_video`、model `kling3_0`、mode `std`、sound `off`、**duration `5`**、`9:16`、medias に開始画像を `start_image`。
+   `Fixed phone camera, no camera movement. From the very first frame, ...` で始め、企画の「動き」とオチの直前までを書く。
+   最後は `Hai's face stays completely expressionless and deadpan the whole time. Hai keeps the same plain blue-grey fur color in every frame. Realistic real cats with natural fur, no clothes, no text, no talking.`
+3. **オチ用のハイの立ち姿**（1クレジット）: `generate_image`（設定は1と同じ）。参照に「開始画像」と「ハイ（全身）」。
+   `Same room, same lighting and same props as the first reference image. The exact same plain solid blue-grey short-haired cat (Hai) now stands upright on its hind legs like a human, facing the camera, front legs hanging relaxed at its sides, seen from the knees up, in the center of the frame.`
+   ＋オチに必要なほかの猫や小物の位置。上半身だけの見本（拍手・力こぶ・サムズアップ・頭を抱える・肩をすくめる）は `seen from the waist up` にする。
+4. **オチの動画**（約7〜10クレジット）: `generate_video`、model `hf_mult_motion_control_flash`、aspect_ratio `9:16`、
+   medias = 3の画像を `image_references`、企画の見本の `media_id` を `video_references`（1本だけ）。
+   プロンプト: `The standing blue-grey cat Hai copies exactly the person's movement in the video: <動きの説明>. Same room and fixed camera as the image. Hai keeps a deadpan cat face and the same plain blue-grey fur. No people, no text.`
+5. **確認**: 前半・オチとも `fps=4` のコマ一覧を見る。人間が写る・文字が出る・毛色が紺や縞に変わる・体が崩れる・動きが移っていない、なら1回だけ作り直す（2回目もダメならその企画は飛ばす）。
+   軽い青みは `python3 ../motion/fix_blue.py in.mp4 out.mp4 0.2 1.7`（紫まで直すなら末尾に 165）。
+6. **仕上げ**: `bash assemble_mt.sh setup.mp4 punch.mp4 final.mp4 <前半の頭を切る秒> <オチの頭を切る秒> <オチの長さ> <オチの決めの瞬間（オチの中の秒）> "<秒>:<効果音>" ...`
+   前半とオチをつなぎ、オチの決めの瞬間を冒頭0.9秒に先出しし、効果音を付ける（効果音の秒数はつないだ本編の秒数）。字幕は入れない。
+7. 保存先: `content/autopilot/<YYYYMMDD>_<番号>/`（`start.png`、`subject.png`、`setup.mp4`、`punch.mp4`、`final.mp4`）。
 
-## 4. Metricool に下書きで入れる
+**予算**: 1本 約17クレジット、1日2本で約34。月800に収まらない見込みの日は、その日は1本にして報告する（目安: 残り予算 ÷ 次の付与日までの日数 が 34 未満なら1本）。
+
+## 4. Metricool に予約を入れる（自動公開）
 
 1. `final.mp4` を Higgsfield の `media_upload` → curl PUT → `media_confirm` で上げ、返ってきた公開URLを使う。
 2. `createScheduledPost`、blogId `7514409`、日時は今日の 18:00（1本目）と 19:00（2本目）、timezone `Asia/Tokyo`。

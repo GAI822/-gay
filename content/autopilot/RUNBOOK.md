@@ -55,6 +55,7 @@
    medias = 3の画像を `image_references`、企画の見本の `media_id` を `video_references`（1本だけ）。
    プロンプト: `The standing blue-grey cat Hai copies exactly the person's movement in the video: <動きの説明>. Same room and fixed camera as the image. Hai keeps a deadpan cat face and the same plain blue-grey fur. No people, no text.`
 5. **確認**: 見本の人が持っている物（スマホなど）も一緒に移ることがある。物で顔が隠れる部分は使わない。前半・オチとも `fps=4` のコマ一覧を見る。人間が写る・文字が出る・毛色が紺や縞に変わる・体が崩れる・動きが移っていない、なら1回だけ作り直す（2回目もダメならその企画は飛ばす）。
+   Kling は腕を大きく上げる動きでハイに縞を出しやすい。前半は腕を上げない動き（歩く・のぞく・振り向く）にし、縞が出たら出る前までで切る。
    軽い青みは `python3 ../motion/fix_blue.py in.mp4 out.mp4 0.2 1.7`（紫まで直すなら末尾に 165）。
 6. **仕上げ**: `bash assemble_mt.sh setup.mp4 punch.mp4 final.mp4 <前半の頭を切る秒> <オチの頭を切る秒> <オチの長さ> <オチの決めの瞬間（オチの中の秒）> "<秒>:<効果音>" ...`
    前半とオチをつなぎ、オチの決めの瞬間を冒頭0.9秒に先出しし、効果音を付ける（効果音の秒数はつないだ本編の秒数）。字幕は入れない。

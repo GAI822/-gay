@@ -3,7 +3,7 @@
 使い方: python3 sfx.py in.mp4 out.mp4 "0.4:toss" "1.3:land" "2.0:steps" "3.0:cheer" "5.8:clatter"
 音の種類: toss（投げる風切り音） / land（布が落ちる音） / steps（小走りの足音） / jump（踏み切り） /
           thud（着地） / cheer（歓声のような盛り上がり） / clatter（プラスチックが倒れる音） / pop（ポン） /
-          splash（水をぶちまける音） / beat（煽りダンス用の2秒のリズム） / alarm（目覚まし時計のピピピ） / beep（レジのピッ） / rewind（巻き戻しのシュルル）
+          splash（水をぶちまける音） / beat（煽りダンス用の2秒のリズム） / alarm（目覚まし時計のピピピ） / beep（レジのピッ） / rewind（巻き戻しのシュルル） / welcome（歓迎のベル＋拍手）
 """
 import subprocess
 import sys
@@ -81,6 +81,20 @@ def sound(kind):
         t = np.arange(n) / SR
         f = 1800 * np.exp(-t * 6) + 200
         x = (np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.3 + lowpass(rng.standard_normal(n), 3) * 0.25) * np.minimum(1, (n - np.arange(n)) / (0.03 * SR))
+    elif kind == "welcome":
+        # 歓迎の音: 明るいベルの上昇アルペジオ（ド・ミ・ソ・ド）＋きらきら＋拍手のような細かいノイズ
+        n = int(1.6 * SR)
+        x = np.zeros(n)
+        for i, f in enumerate((523.25, 659.25, 783.99, 1046.5)):
+            k = int(i * 0.11 * SR); m = int(0.9 * SR)
+            t = np.arange(m) / SR
+            tone = (np.sin(2 * np.pi * f * t) + 0.4 * np.sin(2 * np.pi * 2 * f * t) + 0.2 * np.sin(2 * np.pi * 3 * f * t)) * env(m, 0.003, 0.35) * 0.35
+            x[k:k + m] += tone[: n - k]
+        claps = np.zeros(n)
+        for _ in range(60):
+            k = int(rng.uniform(0.15, 1.3) * SR); m = int(0.025 * SR)
+            claps[k:k + m] += lowpass(rng.standard_normal(m), 2) * env(m, 0.001, 0.006) * rng.uniform(0.15, 0.35)
+        x += claps
     elif kind == "beat":
         n = int(2.0 * SR)
         x = np.zeros(n)

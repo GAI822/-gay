@@ -1,0 +1,20 @@
+{
+ "music_start": 4.8,
+ "music_vol": 0.6,
+ "teaser": {"cut": 7, "at": 2.0},
+ "cuts": [
+  {"src": "clips/s01_arrival.mp4", "ss": 0, "t": 5.0, "note": "マロ登場（Kling）"},
+  {"src": "clips/s02_hai_shock.mp4", "ss": 0.2, "t": 2.6, "note": "ハイ驚く（頭を抱える 4508）"},
+  {"src": "clips/s03_hai_bow.mp4", "ss": 1.5, "t": 3.0, "note": "ハイがあいさつのお辞儀（49706）"},
+  {"src": "clips/s04_mallo_bow.mp4", "ss": 1.5, "t": 3.0, "note": "マロが真似してお辞儀"},
+  {"src": "clips/s05_hai_thumbs.mp4", "ss": 1.0, "t": 2.8, "note": "ハイ サムズアップ（49026）"},
+  {"src": "clips/s06_mallo_thumbs.mp4", "ss": 1.0, "t": 2.8, "note": "マロも真似"},
+  {"src": "clips/s07_faceoff.mp4", "ss": 0, "t": 5.0, "note": "にらみ合い、クロが審判の合図（Kling）"},
+  {"src": "clips/s08_hai_dance.mp4", "ss": 0, "t": 5.0, "note": "ハイ ストリートダンス（3619）"},
+  {"src": "clips/s09_mallo_dance.mp4", "ss": 0, "t": 5.0, "note": "マロ ヒップホップ（415）"},
+  {"split": [{"src": "clips/s10_hai_pose.mp4", "ss": 1.75}, {"src": "clips/s10_mallo_pose.mp4", "ss": 2.0}], "t": 3.0, "note": "決めポーズ: ハイ=回し蹴り→カンフーの構え（49634）｜マロ=ガッツポーズ（6164）"},
+  {"src": "clips/s11_judge.mp4", "ss": 2.0, "t": 3.0, "note": "判定: マロが胸を張り、ハイがうなだれる（Kling）"},
+  {"src": "clips/s12_hai_bow_room.mp4", "ss": 1.5, "t": 2.75, "note": "オチ: ハイが深々とお辞儀して弟子入り（49706）"}
+ ],
+ "sfx": ["1.0:steps", "2.5:steps", "5.3:pop", "6.0:thud", "8.6:pop", "11.4:pop", "14.6:pop", "17.4:pop", "21.0:beep", "38.2:jump", "38.9:thud", "40.0:cheer", "42.0:thud", "43.0:pop"]
+}

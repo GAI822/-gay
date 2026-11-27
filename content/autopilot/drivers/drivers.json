@@ -141,5 +141,27 @@
   ],
   "src": "https://mixkit.co/free-stock-video/man-on-a-blue-background-points-at-himself-in-surprise-45503/",
   "media_id": "0d95af68-a11e-456b-b046-e4f11fb00168"
+ },
+ {
+  "id": "49580",
+  "move": "point_side",
+  "ja": "横を指さす（勝者を示す、上半身）",
+  "trim": [
+   1.0,
+   6.0
+  ],
+  "src": "https://mixkit.co/free-stock-video/man-pointing-at-copy-space-on-green-screen-background-49580/",
+  "media_id": "d55d4218-37aa-45ab-8b7b-671a349b4e75"
+ },
+ {
+  "id": "49581",
+  "move": "point_front",
+  "ja": "こちらを指さす（始めの合図、全身寄り）",
+  "trim": [
+   1.0,
+   6.0
+  ],
+  "src": "https://mixkit.co/free-stock-video/man-pointing-to-camera-on-green-screen-background-49581/",
+  "media_id": "776065f9-462a-4ff4-90b9-b56f75237afa"
  }
 ]

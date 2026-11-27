@@ -30,11 +30,22 @@ dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=d
 off = 0.967
 ev = [f"{round(float(e.split(':')[0]) + off, 3)}:{e.split(':')[1]}" for e in C["sfx"]] + ["0.7:rewind"]
 subprocess.run(["python3", "../../motion/sfx.py", "tmp/video.mp4", "tmp/sfx.mp4"] + ev, check=True)
-# 曲を重ねる（曲は小さめ、最後1.5秒でフェードアウト）
+# 曲を重ねる（曲は小さめ、最後1.5秒でフェードアウト）。music2 があれば指定の秒（本編の秒）から2曲目を重ねる
 if os.path.exists("music.mp3"):
-    run(["-i", "tmp/sfx.mp4", "-i", "music.mp3", "-filter_complex",
-         f"[1:a]atrim={C.get('music_start', 0)},asetpts=PTS-STARTPTS,atrim=0:{dur},volume={C.get('music_vol', 0.55)},afade=t=out:st={min(dur, 47 - C.get('music_start', 0)) - 1.5}:d=1.5[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]",
-         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "out/新入りマロ.mp4"])
+    ms = C.get("music_start", 0); mend = min(dur, 47 - ms)
+    m2 = C.get("music2")
+    ins = ["-i", "tmp/sfx.mp4", "-i", "music.mp3"]
+    fc = f"[1:a]atrim={ms},asetpts=PTS-STARTPTS,atrim=0:{dur},volume={C.get('music_vol', 0.55)},afade=t=out:st={mend - 1.5}:d=1.5[m]"
+    if m2:
+        ins += ["-i", m2["file"]]
+        at = m2["at"] + off
+        if "main_fade_at" in m2:  # 2曲目の前に1曲目を下げる
+            fa = m2["main_fade_at"] + off
+            fc = fc.replace("[m]", f",afade=t=out:st={fa}:d=1.0[m]")
+        fc += f";[2:a]volume={m2.get('vol', 0.6)},adelay={int(at*1000)}|{int(at*1000)},apad,atrim=0:{dur},afade=t=out:st={dur-1.0}:d=1.0[w];[0:a][m][w]amix=inputs=3:duration=first:normalize=0[a]"
+    else:
+        fc += ";[0:a][m]amix=inputs=2:duration=first:normalize=0[a]"
+    run(ins + ["-filter_complex", fc, "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "out/新入りマロ.mp4"])
 else:
     os.replace("tmp/sfx.mp4", "out/新入りマロ.mp4")
 print("wrote out/新入りマロ.mp4", round(dur, 2))

@@ -43,10 +43,10 @@
    "note": "マロも真似"
   },
   {
-   "src": "clips/s07_kuro_start.mp4",
+   "src": "clips/s07_kuro_start_gstd.mp4",
    "ss": 0.3,
-   "t": 5.0,
-   "note": "にらみ合い、クロが二本足で立って「始め」の合図（49581）"
+   "t": 4.5,
+   "note": "審判クロ（二本足・等身大）が「始め」の合図。Genjutsu 通常版（49581）"
   },
   {
    "src": "clips/s08_hai_dance.mp4",
@@ -56,9 +56,9 @@
   },
   {
    "src": "clips/s10_hai_pose_v2.mp4",
-   "ss": 1.5,
-   "t": 3.5,
-   "note": "ハイ決めポーズ: 回し蹴り→カンフーの構え（49634）。手は人間の手"
+   "ss": 3.5,
+   "t": 1.5,
+   "note": "ハイの締めポーズ: 既存の構え（人間の手）で静止"
   },
   {
    "src": "clips/s09_mallo_dance.mp4",
@@ -73,16 +73,16 @@
    "note": "マロ決めポーズ: ガッツポーズ（6164）"
   },
   {
-   "src": "clips/s11_kuro_judge.mp4",
+   "src": "clips/s11_kuro_judge_gstd.mp4",
    "ss": 0.5,
    "t": 3.5,
-   "note": "クロが二本足でマロを指さして勝者を示す（49580）"
+   "note": "審判クロ（二本足・等身大）がマロを指さす。Genjutsu 通常版（49580）"
   },
   {
-   "src": "clips/s12_hai_bow_room.mp4",
-   "ss": 1.5,
-   "t": 2.75,
-   "note": "オチ: ハイが深々とお辞儀して弟子入り（49706）"
+   "src": "clips/s12_ending.mp4",
+   "ss": 0.5,
+   "t": 9.5,
+   "note": "第三者視点の1カット: ハイがお辞儀→マロに駆け寄って肩を組む（Kling 10秒）"
   }
  ],
  "sfx": [
@@ -94,12 +94,17 @@
   "11.4:pop",
   "14.4:welcome",
   "17.2:welcome",
-  "20.4:beep",
-  "29.9:jump",
-  "30.9:thud",
-  "38.0:cheer",
-  "41.6:pop",
-  "45.4:thud",
-  "46.3:pop"
- ]
+  "20.2:beep",
+  "28.8:thud",
+  "35.5:cheer",
+  "42.7:pop",
+  "43.5:thud",
+  "48.2:steps",
+  "49.0:land"
+ ],
+ "music2": {
+  "file": "music_welcome.mp3",
+  "at": 41.8,
+  "vol": 0.75
+ }
 }

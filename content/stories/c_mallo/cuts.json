@@ -49,17 +49,10 @@
    "note": "審判クロ（二本足・等身大）が「始め」の合図。Genjutsu 通常版（49581）"
   },
   {
-   "src": "clips/s08_hai_dance_v3.mp4",
+   "src": "clips/s08_hai_dance_vpose.mp4",
    "ss": 0,
-   "t": 5.0,
-   "note": "ハイ ストリートダンス 5秒（51320、猫の手）"
-  },
-  {
-   "src": "clips/s08_hai_dance.mp4",
-   "ss": 2.9,
-   "t": 0.6,
-   "hold": 1.0,
-   "note": "締め: 前のダンスの最後の形（両腕を広げたV字）で1秒止める"
+   "t": 7.1,
+   "note": "ハイ ストリートダンス→V字ポーズまでノーカット（51320＋3619をつないだ見本）"
   },
   {
    "src": "clips/s09_mallo_dance.mp4",
@@ -75,9 +68,9 @@
   },
   {
    "src": "clips/s11_kuro_judge_gstd.mp4",
-   "ss": 0.5,
-   "t": 3.5,
-   "note": "審判クロ（二本足・等身大）がマロを指さす。Genjutsu 通常版（49580）"
+   "ss": 0,
+   "t": 5.04,
+   "note": "審判クロがマロを指さす判定（ノーカット 5秒）"
   },
   {
    "src": "clips/s12_ending.mp4",
@@ -97,15 +90,15 @@
   "17.2:welcome",
   "20.2:beep",
   "28.8:thud",
-  "35.5:cheer",
-  "42.7:pop",
-  "43.5:thud",
-  "48.2:steps",
-  "49.0:land"
+  "36.1:cheer",
+  "40.1:pop",
+  "44.8:thud",
+  "50.3:steps",
+  "51.1:land"
  ],
  "music2": {
   "file": "music_welcome.mp3",
-  "at": 41.8,
+  "at": 43.9,
   "vol": 0.75
  }
 }

@@ -49,10 +49,10 @@
    "note": "審判クロ（二本足・等身大）が「始め」の合図。Genjutsu 通常版（49581）"
   },
   {
-   "src": "clips/s08_hai_dance_vpose.mp4",
+   "src": "clips/s08_hai_dance_smooth.mp4",
    "ss": 0,
-   "t": 7.1,
-   "note": "ハイ ストリートダンス→V字ポーズまでノーカット（51320＋3619をつないだ見本）"
+   "t": 6.6,
+   "note": "ハイ ストリートダンス4.5秒→生成したつなぎ（Kling 開始/終了フレーム指定）でなめらかにV字ポーズ。合計6.6秒（v5と同じ長さ）"
   },
   {
    "src": "clips/s09_mallo_dance.mp4",
@@ -89,16 +89,16 @@
   "14.4:welcome",
   "17.2:welcome",
   "20.2:beep",
-  "28.8:thud",
-  "36.1:cheer",
-  "40.1:pop",
-  "44.8:thud",
-  "50.3:steps",
-  "51.1:land"
+  "29.4:thud",
+  "35.6:cheer",
+  "39.6:pop",
+  "44.3:thud",
+  "49.8:steps",
+  "50.6:land"
  ],
  "music2": {
   "file": "music_welcome.mp3",
-  "at": 43.9,
+  "at": 43.4,
   "vol": 0.75
  }
 }

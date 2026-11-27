@@ -1,0 +1,104 @@
+{
+ "music_start": 2.5,
+ "music_vol": 0.6,
+ "teaser": {
+  "cut": 7,
+  "at": 2.0
+ },
+ "cuts": [
+  {
+   "src": "clips/s01_arrival.mp4",
+   "ss": 0,
+   "t": 5.0,
+   "note": "マロ登場（Kling）"
+  },
+  {
+   "src": "clips/s02_hai_shock.mp4",
+   "ss": 0.2,
+   "t": 2.6,
+   "note": "ハイ驚く（頭を抱える 4508）"
+  },
+  {
+   "src": "clips/s03_hai_bow.mp4",
+   "ss": 1.5,
+   "t": 3.0,
+   "note": "ハイがあいさつのお辞儀（49706）"
+  },
+  {
+   "src": "clips/s04_mallo_bow.mp4",
+   "ss": 1.5,
+   "t": 3.0,
+   "note": "マロが真似してお辞儀"
+  },
+  {
+   "src": "clips/s05_hai_thumbs.mp4",
+   "ss": 1.0,
+   "t": 2.8,
+   "note": "ハイ サムズアップ（49026）"
+  },
+  {
+   "src": "clips/s06_mallo_thumbs.mp4",
+   "ss": 1.0,
+   "t": 2.8,
+   "note": "マロも真似"
+  },
+  {
+   "src": "clips/s07_kuro_start_gstd.mp4",
+   "ss": 0.3,
+   "t": 4.5,
+   "note": "審判クロ（二本足・等身大）が「始め」の合図。Genjutsu 通常版（49581）"
+  },
+  {
+   "src": "clips/s08_hai_dance_vpose.mp4",
+   "ss": 0,
+   "t": 7.1,
+   "note": "ハイ ストリートダンス→V字ポーズまでノーカット（51320＋3619をつないだ見本）"
+  },
+  {
+   "src": "clips/s09_mallo_dance.mp4",
+   "ss": 0,
+   "t": 5.0,
+   "note": "マロ ヒップホップ 5秒（415）"
+  },
+  {
+   "src": "clips/s10_mallo_pose.mp4",
+   "ss": 2.0,
+   "t": 3.0,
+   "note": "マロ決めポーズ: ガッツポーズ（6164）"
+  },
+  {
+   "src": "clips/s11_kuro_judge_gstd.mp4",
+   "ss": 0,
+   "t": 5.04,
+   "note": "審判クロがマロを指さす判定（ノーカット 5秒）"
+  },
+  {
+   "src": "clips/s12_ending.mp4",
+   "ss": 0.5,
+   "t": 9.5,
+   "note": "第三者視点の1カット: ハイがお辞儀→マロに駆け寄って肩を組む（Kling 10秒）"
+  }
+ ],
+ "sfx": [
+  "1.0:steps",
+  "2.5:steps",
+  "5.3:pop",
+  "6.0:thud",
+  "8.6:pop",
+  "11.4:pop",
+  "14.4:welcome",
+  "17.2:welcome",
+  "20.2:beep",
+  "28.8:thud",
+  "36.1:cheer",
+  "40.1:pop",
+  "44.8:thud",
+  "50.3:steps",
+  "51.1:land"
+ ],
+ "music2": {
+  "file": "music_welcome.mp3",
+  "at": 43.9,
+  "vol": 0.75
+ }
+}

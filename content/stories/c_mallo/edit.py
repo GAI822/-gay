@@ -16,7 +16,8 @@ for i, c in enumerate(C["cuts"]):
              "-filter_complex", "[0:v]scale=-2:1920,crop=540:1920[l];[1:v]scale=-2:1920,crop=540:1920[r];[l][r]hstack,setsar=1,fps=30,format=yuv420p,drawbox=x=537:y=0:w=6:h=1920:color=white@0.9:t=fill[v]",
              "-map", "[v]", "-an", "-c:v", "libx264", "-crf", "18", o])
     else:
-        run(["-ss", str(c["ss"]), "-t", str(c["t"]), "-i", c["src"], "-vf", FIT, "-an", "-c:v", "libx264", "-crf", "18", o])
+        vf = FIT + (f",tpad=stop_mode=clone:stop_duration={c['hold']}" if c.get("hold") else "")
+        run(["-ss", str(c["ss"]), "-t", str(c["t"]), "-i", c["src"], "-vf", vf, "-an", "-c:v", "libx264", "-crf", "18", o])
     parts.append(o)
 # 先出し: teaser で指定したカットの中の秒
 tz = C["teaser"]; tsrc = parts[tz["cut"]]

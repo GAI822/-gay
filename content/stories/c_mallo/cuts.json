@@ -49,16 +49,17 @@
    "note": "審判クロ（二本足・等身大）が「始め」の合図。Genjutsu 通常版（49581）"
   },
   {
-   "src": "clips/s08_hai_dance_v2.mp4",
+   "src": "clips/s08_hai_dance_v3.mp4",
    "ss": 0,
    "t": 5.0,
-   "note": "ハイ ストリートダンス 5秒（51320、人間の手）"
+   "note": "ハイ ストリートダンス 5秒（51320、猫の手）"
   },
   {
-   "src": "clips/s10_hai_pose_v2.mp4",
-   "ss": 3.5,
-   "t": 1.5,
-   "note": "ハイの締めポーズ: 既存の構え（人間の手）で静止"
+   "src": "clips/s08_hai_dance.mp4",
+   "ss": 2.9,
+   "t": 0.6,
+   "hold": 1.0,
+   "note": "締め: 前のダンスの最後の形（両腕を広げたV字）で1秒止める"
   },
   {
    "src": "clips/s09_mallo_dance.mp4",

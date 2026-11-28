@@ -32,7 +32,18 @@ off = 0.967
 ev = [f"{round(float(e.split(':')[0]) + off, 3)}:{e.split(':')[1]}" for e in C["sfx"]] + ["0.7:rewind"]
 subprocess.run(["python3", "../../motion/sfx.py", "tmp/video.mp4", "tmp/sfx.mp4"] + ev, check=True)
 # 曲を重ねる（曲は小さめ、最後1.5秒でフェードアウト）。music2 があれば指定の秒（本編の秒）から2曲目を重ねる
-if os.path.exists("music.mp3"):
+if C.get("music_segments"):
+    # BGM を区間ごとに置く: {file, src(曲の何秒から), at(本編の秒), len, vol, fin, fout}
+    ins = ["-i", "tmp/sfx.mp4"]; fc = []; labels = []
+    for i, sg in enumerate(C["music_segments"]):
+        ins += ["-i", sg["file"]]
+        at = sg["at"] + off; L = sg["len"]; fo = sg.get("fout", 0.3); fi = sg.get("fin", 0.05)
+        fc.append(f"[{i+1}:a]atrim={sg.get('src', 0)}:{sg.get('src', 0) + L},asetpts=PTS-STARTPTS,volume={sg.get('vol', 0.6)},"
+                  f"afade=t=in:st=0:d={fi},afade=t=out:st={max(0, L - fo)}:d={fo},adelay={int(at*1000)}|{int(at*1000)}[s{i}]")
+        labels.append(f"[s{i}]")
+    fc.append("[0:a]" + "".join(labels) + f"amix=inputs={len(labels)+1}:duration=first:normalize=0[a]")
+    run(ins + ["-filter_complex", ";".join(fc), "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "out/新入りマロ.mp4"])
+elif os.path.exists("music.mp3"):
     ms = C.get("music_start", 0); mend = min(dur, 47 - ms)
     m2 = C.get("music2")
     ins = ["-i", "tmp/sfx.mp4", "-i", "music.mp3"]

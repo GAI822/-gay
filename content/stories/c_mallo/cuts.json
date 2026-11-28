@@ -96,9 +96,53 @@
   "49.8:steps",
   "50.6:land"
  ],
- "music2": {
-  "file": "music_welcome.mp3",
-  "at": 43.4,
-  "vol": 0.75
- }
+ "music_segments": [
+  {
+   "file": "music.mp3",
+   "src": 2.5,
+   "at": 0,
+   "len": 19.2,
+   "vol": 0.6,
+   "fout": 0.4,
+   "note": "導入（のんびり）"
+  },
+  {
+   "file": "music_tense.mp3",
+   "src": 4.2,
+   "at": 19.2,
+   "len": 4.5,
+   "vol": 0.6,
+   "fin": 0.2,
+   "fout": 0.08,
+   "note": "審判の「始め」: 緊迫感"
+  },
+  {
+   "file": "music.mp3",
+   "src": 29.97,
+   "at": 23.7,
+   "len": 10.0,
+   "vol": 0.6,
+   "fout": 0.02,
+   "note": "ダンスに入った瞬間にビート"
+  },
+  {
+   "file": "music.mp3",
+   "src": 34.97,
+   "at": 33.7,
+   "len": 8.3,
+   "vol": 0.6,
+   "fin": 0.02,
+   "fout": 1.0,
+   "note": "ビートの続き→締めのファンファーレ"
+  },
+  {
+   "file": "music_welcome.mp3",
+   "src": 0,
+   "at": 43.4,
+   "len": 9.4,
+   "vol": 0.75,
+   "fout": 1.0,
+   "note": "肩組みの歓迎曲"
+  }
+ ]
 }
